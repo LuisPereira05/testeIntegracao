@@ -20,6 +20,13 @@ public class Painel extends ComponenteCarro {
         this.display = display;
         this.controle = controle;
     }
+    
+    public Painel() {
+        super(null, null, null);
+        this.tipo = null;
+        this.display = null;
+        this.controle = true;
+    }
 
     public void ligarDisplay() {
         System.out.println("Display ligado.");
