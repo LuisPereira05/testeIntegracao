@@ -8,34 +8,37 @@ package com.testando.carro;
  *
  * @author mandr
  */
-public class Freios {
+public class Freios extends ComponenteCarro{
 
     // Atributos
     private String tipo;
-    private String material;
     private double tamanho;
-    private String marca;
     private double nivelDeDesgaste;
 
-    // Construtor vazio
-    public Freios() {
+    public Freios(String tipo, double tamanho, double nivelDeDesgaste, String estado, String material, String marca) {
+        super(estado, material, marca);
+        this.tipo = tipo;
+        this.tamanho = tamanho;
+        this.nivelDeDesgaste = nivelDeDesgaste;
     }
+
+    
+    
+    
+
+    
 
     // Métodos
 
     // Retorna o nível de desgaste dos freios
-    public double verificarDesgaste() {
+    @Override
+    public void verificarEstado() {
         // Implementação futura
-        return 0.0;
+        System.out.println("FREIOS: Nível de desgaste -> " + this.nivelDeDesgaste + "%");
     }
 
     // Substitui as pastilhas de freio
     public void substituirPastilhas() {
-        // Implementação futura
-    }
-
-    // Ajusta o sistema de freio
-    public void ajustarFreio() {
-        // Implementação futura
+        this.nivelDeDesgaste = 0.0;
     }
 }

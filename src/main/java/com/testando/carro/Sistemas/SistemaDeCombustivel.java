@@ -17,26 +17,44 @@ public class SistemaDeCombustivel {
     private String marca;
     private boolean estado;
 
-    // Construtor vazio
-    public SistemaDeCombustivel() {
+
+    public SistemaDeCombustivel(String tipoDeCombustivel, double capacidade, double nivelDeCombustivel, String marca, boolean estado) {
+        this.tipoDeCombustivel = tipoDeCombustivel;
+        this.capacidade = capacidade;
+        this.nivelDeCombustivel = nivelDeCombustivel;
+        this.marca = marca;
+        this.estado = estado;
     }
+    
 
     // Métodos
 
     // Verifica o nível de combustível
     public double verificarNivel() {
-        // Implementação futura
-        return 0.0;
+        return this.nivelDeCombustivel;
     }
 
     // Abastece o tanque com uma quantidade específica
-    public void abastecer(double quantidade) {
-        // Implementação futura
+    public boolean abastecer(double quantidade) {
+        if (this.nivelDeCombustivel + quantidade <= this.capacidade) {
+            this.capacidade += quantidade;
+            return true;
+        } else {
+            System.out.println("ERRO: QUANTIDADE INVALIDA");
+            return false;
+        }
     }
 
     // Substitui o tanque de combustível
-    public void substituirTanque() {
-        // Implementação futura
+    public boolean substituirTanque(double novaCapacidade) {
+        if (novaCapacidade > 0) {
+            this.capacidade = novaCapacidade;
+            return true;
+        } else{
+            System.out.println("ERRO: CAPACIDADE INVALIDA");
+            return false;
+        }
+        
     }
 }
 

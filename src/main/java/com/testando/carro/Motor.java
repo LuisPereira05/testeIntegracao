@@ -3,43 +3,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.testando.carro;
+import com.testando.carro.Sistemas.SistemaDeCombustivel;
 
 /**
  *
  * @author Abner
  */
-public class Motor {
+public class Motor extends ComponenteCarro{
 
     // Atributos
+    public SistemaDeCombustivel sistemaC;
     private String tipo;
     private int potencia;
     private double cilindrada;
-    private String marca;
-    private boolean estado;
+    public boolean ligado;
 
-    // Construtor vazio
-    public Motor() {
+    public Motor(SistemaDeCombustivel sistemaC, String tipo, int potencia, double cilindrada, boolean ligado, String estado, String material, String marca) {
+        super(estado, material, marca);
+        this.sistemaC = sistemaC;
+        this.tipo = tipo;
+        this.potencia = potencia;
+        this.cilindrada = cilindrada;
+        this.ligado = ligado;
     }
+
+    
+
+    
 
     // Liga o motor (versão anterior do método preservada e integrada)
-    public void ligar() {
-        estado = true;
-        ligarMotor();
-    }
+    
 
     // Método legado preservado
     public void ligarMotor() {
+        if (!this.ligado) {
+            this.ligado = true;
+        }
         System.out.println("Motor ligado");
     }
 
     // Desliga o motor
     public void desligar() {
-        estado = false;
+        if (this.ligado) {
+            this.ligado = false;
+        }
+        
         System.out.println("Motor desligado");
     }
 
     // Verifica o estado do motor
-    public String verificarEstado() {
-        return estado ? "Motor em funcionamento" : "Motor desligado";
+    @Override
+    public void verificarEstado() {
+        System.out.println(estado);
+        
     }
 }

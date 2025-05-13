@@ -10,14 +10,21 @@ public class SistemaEletrico {
     private String marca;
 
     // Construtor vazio
-    public SistemaEletrico() {
+
+    public SistemaEletrico(double voltagem, double capacidade, String tipoDeBateria, boolean estado, String marca) {
+        this.voltagem = voltagem;
+        this.capacidade = capacidade;
+        this.tipoDeBateria = tipoDeBateria;
+        this.estado = estado;
+        this.marca = marca;
     }
+    
 
     // Métodos
 
     // Verifica o estado da bateria
-    public String verificarBateria() {
-        return estado ? "Bateria em bom estado" : "Bateria descarregada ou com falha";
+    public boolean verificarBateria() {
+        return estado;
     }
 
     // Substitui a bateria

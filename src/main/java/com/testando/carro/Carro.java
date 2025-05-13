@@ -3,7 +3,8 @@
  */
 package com.testando.carro;
 
-import com.testando.carro.Sistemas.SistemaEletrico;
+import com.testando.carro.Sistemas.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,6 +16,10 @@ public class Carro {
     String cor;
     String placa;
     double quilometragem;
+
+    
+    
+    
     
     public void ligar(){
         
@@ -32,18 +37,41 @@ public class Carro {
         System.out.println("Carro acelerando");
     }
 
+    
+    
+    public Carro(String modelo, int ano, String cor, String placa, double quilometragem, ArrayList<Object> componentes) {
+        this.modelo = modelo;
+        this.ano = ano;
+        this.cor = cor;
+        this.placa = placa;
+        this.quilometragem = quilometragem;
+    }
+    
     public static void main(String[] args) {
         // Criar instâncias das classes envolvidas
+        
+        
+        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 0.0, "GM", true);
+        Motor motor = new Motor(sistemaC, "V10", 1200, 5.0, false, "Otimo", "Aço", "Bugatti");
+        
+        SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", true);
+        Transmissao transmissao = new Transmissao(sistemaT);
+        
+        SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
+        Painel painel = new Painel(sistemaE, "Desligado", "Vidro", "Philips", "Smart", "LED", false);
+        Banco banco = new Banco(sistemaE, "Normal", "Coro", "Volvo", "Vermelho", "Comfort");
+        
+        
+        
+        
         Carro carro = new Carro();
-        Motor motor = new Motor();
-        Transmissao transmissao = new Transmissao();
-        SistemaEletrico sistemaEletrico = new SistemaEletrico();
-        Painel painel = new Painel();
-
         // Realizar as ações de ligar o motor, ativar a transmissão e o sistema elétrico
+        sistemaE.ativarParteEletrica();
         motor.ligarMotor();
         transmissao.aumentarMarcha();
-        sistemaEletrico.ativarParteEletrica();
+        
+        
+        
 
         // Exibir o status no painel
         String status = painel.exibirStatus();

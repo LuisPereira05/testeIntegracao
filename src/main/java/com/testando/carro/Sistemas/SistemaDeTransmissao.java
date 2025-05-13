@@ -18,8 +18,15 @@ public class SistemaDeTransmissao {
     private boolean estado;
 
     // Construtor vazio
-    public SistemaDeTransmissao() {
+
+    public SistemaDeTransmissao(String tipo, int numeroDeMarchas, String material, String marca, boolean estado) {
+        this.tipo = tipo;
+        this.numeroDeMarchas = numeroDeMarchas;
+        this.material = material;
+        this.marca = marca;
+        this.estado = estado;
     }
+    
 
     // Métodos
 
