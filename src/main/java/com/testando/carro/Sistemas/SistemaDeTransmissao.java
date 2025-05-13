@@ -13,8 +13,8 @@ public class SistemaDeTransmissao {
     // Atributos
     private String tipo;
     private int numeroDeMarchas;
-    private String material;
-    private String marca;
+    public String material;
+    public String marca;
     private boolean estado;
 
     // Construtor vazio

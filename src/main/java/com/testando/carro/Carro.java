@@ -55,16 +55,23 @@ public class Carro {
         Motor motor = new Motor(sistemaC, "V10", 1200, 5.0, false, "Otimo", "Aço", "Bugatti");
         
         SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", true);
-        Transmissao transmissao = new Transmissao(sistemaT);
+        Transmissao transmissao = new Transmissao(sistemaT, 0, "Otimo");
         
         SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
         Painel painel = new Painel(sistemaE, "Desligado", "Vidro", "Philips", "Smart", "LED", false);
         Banco banco = new Banco(sistemaE, "Normal", "Coro", "Volvo", "Vermelho", "Comfort");
+        Luzes luzes = new Luzes(sistemaE, "LED", 1, "branco", "Fisheye", "Vidro", "Phillips");
+        
+        
+        Freios freios = new Freios("ABS", 12.0, 0.0, "Desativados", "Ceramica", "Volvo");
         
         
         
+        ArrayList<Object> componentes = new ArrayList<Object>();
         
-        Carro carro = new Carro();
+        
+        
+        Carro carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, componentes);
         // Realizar as ações de ligar o motor, ativar a transmissão e o sistema elétrico
         sistemaE.ativarParteEletrica();
         motor.ligarMotor();

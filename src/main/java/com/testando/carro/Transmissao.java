@@ -14,10 +14,12 @@ public class Transmissao extends ComponenteCarro{
     private int marchaAtual;
     
 
-    public Transmissao(SistemaDeTransmissao sistema, int marchaAtual, String estado, String material, String marca) {
-        super(estado, material, marca);
+    public Transmissao(SistemaDeTransmissao sistema, int marchaAtual, String estado) {
+        super(estado, null, null);
         this.sistema = sistema;
         this.marchaAtual = marchaAtual;
+        this.material = this.sistema.material;
+        this.marca = this.sistema.marca;
     }
 
     @Override
