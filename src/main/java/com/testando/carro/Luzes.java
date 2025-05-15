@@ -4,37 +4,77 @@
  */
 package com.testando.carro;
 
+import com.testando.carro.Sistemas.SistemaEletrico;
+
 /**
  *
  * @author mandr
  */
-public class Luzes {
+public class Luzes extends ComponenteCarro{
 
     // Atributos
+    public SistemaEletrico sistemaE;
     private String tipo;
     private int intensidade;
     private String cor;
-    private boolean estado;
     private String modelo;
 
     // Construtor vazio
-    public Luzes() {
+
+    public Luzes(SistemaEletrico sistemaE, String tipo, int intensidade, String cor, String modelo, String material, String marca) {
+        super("Desligadas", material, marca);
+        this.sistemaE = sistemaE;
+        this.tipo = tipo;
+        this.intensidade = intensidade;
+        this.cor = cor;
+        this.modelo = modelo;
     }
+    
 
     // Métodos
-
     // Liga as luzes
     public void ligar() {
-        // Implementação futura
+        if (this.estado.equals("Desligadas")) {
+            this.estado = "Ligadas";
+        } else {
+            System.out.println("As Luzes já estao ligadas");
+        }
     }
 
     // Desliga as luzes
     public void desligar() {
-        // Implementação futura
+        if (this.estado.equals("Ligadas")) {
+           this.estado = "Desligadas";
+        } else {
+            System.out.println("As Luzes já estao desligadas");
+        }
     }
 
     // Ajusta a intensidade das luzes
     public void ajustarIntensidade(int novaIntensidade) {
-        // Implementação futura
+        switch (novaIntensidade) {
+            case 1:
+                this.intensidade = novaIntensidade;
+                System.out.println("Intensidade ajustada para: Posição");
+                break;
+            case 2:
+                this.intensidade = novaIntensidade;
+                System.out.println("Intensidade ajustada para: baixa");
+                break;
+            case 3:
+                this.intensidade = novaIntensidade;
+                System.out.println("Intensidade ajustada para: Alta");
+                break;
+            default:
+                System.out.println("A Intensidade deve ser 1, 2 ou 3");
+                break;
+        }
     }
+
+    @Override
+    public void verificarEstado() {
+        System.out.println("LUZES: Estado: " + this.estado + " Intensidade: " + this.intensidade);
+    }
+    
+    
 }

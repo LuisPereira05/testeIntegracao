@@ -3,43 +3,80 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.testando.carro;
+import com.testando.carro.Sistemas.SistemaDeCombustivel;
+import com.testando.carro.Sistemas.SistemaEletrico;
 
 /**
  *
- * @author Abner
+ * @author mandr
  */
-public class Motor {
+public class Motor extends ComponenteCarro{
 
     // Atributos
+    public SistemaDeCombustivel sistemaC;
+    public SistemaEletrico sistemaE;
     private String tipo;
     private int potencia;
     private double cilindrada;
-    private String marca;
-    private boolean estado;
+    public boolean ligado;
 
-    // Construtor vazio
-    public Motor() {
+    public Motor(SistemaDeCombustivel sistemaC, SistemaEletrico sistemaE, String tipo, int potencia, double cilindrada, boolean ligado, String estado, String material, String marca) {
+        super(estado, material, marca);
+        this.sistemaE = sistemaE;
+        this.sistemaC = sistemaC;
+        this.tipo = tipo;
+        this.potencia = potencia;
+        this.cilindrada = cilindrada;
+        this.ligado = ligado;
     }
+
+    
+
+    
 
     // Liga o motor (versão anterior do método preservada e integrada)
-    public void ligar() {
-        estado = true;
-        ligarMotor();
-    }
+    
 
     // Método legado preservado
     public void ligarMotor() {
-        System.out.println("Motor ligado");
+        if (!this.ligado) {
+            if (sistemaE.verificarBateria() && sistemaC.verificarNivel() > 0) {
+                this.ligado = true;
+                System.out.println("Motor ligado");
+            } else if (!sistemaE.verificarBateria()) {
+                System.out.println("ERRO: A bateria está vazia");
+            } else if (sistemaC.verificarNivel() <= 0) {
+                System.out.println("ERRO: Sem combustivel");
+            }
+        } else {
+            System.out.println("O motor já está ligado");
+        }
+        
     }
 
     // Desliga o motor
     public void desligar() {
-        estado = false;
+        if (this.ligado) {
+            this.ligado = false;
+        }
         System.out.println("Motor desligado");
     }
 
     // Verifica o estado do motor
-    public String verificarEstado() {
-        return estado ? "Motor em funcionamento" : "Motor desligado";
+    @Override
+    public void verificarEstado() {
+        if (ligado) {
+            estado = "Ligado";
+        } else {
+            estado = "Desligado";
+        }
+        System.out.println("Motor: " + estado);
+        
+    }
+    
+    public void acelerar() {
+        if (ligado && sistemaC.verificarNivel() > 0) {
+            this.sistemaC.ajustarNivel(cilindrada * potencia / 500);
+        }
     }
 }

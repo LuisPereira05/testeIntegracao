@@ -4,22 +4,32 @@
  */
 package com.testando.carro;
 
+import com.testando.carro.Sistemas.SistemaEletrico;
+
 /**
  *
  * @author mandr
  */
-public class Suspensao {
+public class Suspensao extends ComponenteCarro{
 
     // Atributos
+    public SistemaEletrico sistemaE;
     private String tipo;
-    private String material;
     private double altura;
     private int rigidez;
-    private String marca;
 
     // Construtor vazio
-    public Suspensao() {
+
+    public Suspensao(SistemaEletrico sistemaE, String tipo, double altura, int rigidez, String estado, String material, String marca) {
+        super(estado, material, marca);
+        this.sistemaE = sistemaE;
+        this.tipo = tipo;
+        this.altura = altura;
+        this.rigidez = rigidez;
     }
+
+    
+    
 
     // Métodos
 
@@ -29,10 +39,12 @@ public class Suspensao {
     }
 
     // Retorna o estado atual da suspensão
-    public String verificarEstado() {
-        // Implementação futura
-        return null;
+
+    @Override
+    public void verificarEstado() {
+        
     }
+    
 
     // Substitui a suspensão por uma nova
     public void substituir() {

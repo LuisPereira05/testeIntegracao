@@ -3,20 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.testando.carro;
+import com.testando.carro.Sistemas.*;
 
 /**
  *
- * @author Abner
+ * @author mandr
  */
-public class Transmissao {
+public class Transmissao extends ComponenteCarro{
+    private SistemaDeTransmissao sistema;
     private int marchaAtual;
     
+
+    public Transmissao(SistemaDeTransmissao sistema, int marchaAtual, String estado) {
+        super(estado, null, null);
+        this.sistema = sistema;
+        this.marchaAtual = marchaAtual;
+        this.material = this.sistema.material;
+        this.marca = this.sistema.marca;
+    }
+
+    @Override
+    public void verificarEstado() {
+        System.out.println("Marcha: " + marchaAtual);
+    }
+    
+    
+    
+    
     public void aumentarMarcha(){
-        if(marchaAtual < 6){
-            marchaAtual++;
-            System.out.println("Marcha aumentada para " + marchaAtual);
-        } else {
-            System.out.println("Não é possível aumentar mais!");
-        }
+        sistema.trocarMarcha(sistema.getEstado() + 1);
+        marchaAtual = sistema.getEstado();
+    }
+    
+    public void diminuirMarcha(){
+        sistema.trocarMarcha(sistema.getEstado() - 1);
+        marchaAtual = sistema.getEstado();
     }
 }

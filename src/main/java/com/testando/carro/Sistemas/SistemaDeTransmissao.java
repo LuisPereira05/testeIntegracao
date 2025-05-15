@@ -13,29 +13,33 @@ public class SistemaDeTransmissao {
     // Atributos
     private String tipo;
     private int numeroDeMarchas;
-    private String material;
-    private String marca;
-    private boolean estado;
+    public String material;
+    public String marca;
+    private int estado;
 
     // Construtor vazio
-    public SistemaDeTransmissao() {
+
+    public SistemaDeTransmissao(String tipo, int numeroDeMarchas, String material, String marca, int estado) {
+        this.tipo = tipo;
+        this.numeroDeMarchas = numeroDeMarchas;
+        this.material = material;
+        this.marca = marca;
+        this.estado = estado;
     }
+    
 
     // Métodos
 
     // Troca a marcha da transmissão
     public void trocarMarcha(int marcha) {
-        // Implementação futura
+        if (marcha >= 0 && marcha <= this.numeroDeMarchas) {
+            this.estado = marcha;
+        } else {
+            System.out.println("ERRO: Marcha Inválida");
+        }
     }
 
-    // Verifica o estado do sistema de transmissão
-    public String verificarEstado() {
-        // Implementação futura
-        return null;
-    }
-
-    // Substitui um componente da transmissão
-    public void substituirComponente(String componente) {
-        // Implementação futura
+    public int getEstado() {
+        return estado;
     }
 }
