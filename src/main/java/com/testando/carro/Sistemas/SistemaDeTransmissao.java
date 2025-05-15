@@ -15,11 +15,11 @@ public class SistemaDeTransmissao {
     private int numeroDeMarchas;
     public String material;
     public String marca;
-    private boolean estado;
+    private int estado;
 
     // Construtor vazio
 
-    public SistemaDeTransmissao(String tipo, int numeroDeMarchas, String material, String marca, boolean estado) {
+    public SistemaDeTransmissao(String tipo, int numeroDeMarchas, String material, String marca, int estado) {
         this.tipo = tipo;
         this.numeroDeMarchas = numeroDeMarchas;
         this.material = material;
@@ -32,17 +32,14 @@ public class SistemaDeTransmissao {
 
     // Troca a marcha da transmissão
     public void trocarMarcha(int marcha) {
-        // Implementação futura
+        if (marcha >= 0 && marcha <= this.numeroDeMarchas) {
+            this.estado = marcha;
+        } else {
+            System.out.println("ERRO: Marcha Inválida");
+        }
     }
 
-    // Verifica o estado do sistema de transmissão
-    public String verificarEstado() {
-        // Implementação futura
-        return null;
-    }
-
-    // Substitui um componente da transmissão
-    public void substituirComponente(String componente) {
-        // Implementação futura
+    public int getEstado() {
+        return estado;
     }
 }

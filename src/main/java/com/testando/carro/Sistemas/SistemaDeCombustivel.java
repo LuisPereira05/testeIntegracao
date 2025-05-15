@@ -37,7 +37,7 @@ public class SistemaDeCombustivel {
     // Abastece o tanque com uma quantidade específica
     public boolean abastecer(double quantidade) {
         if (this.nivelDeCombustivel + quantidade <= this.capacidade) {
-            this.capacidade += quantidade;
+            this.nivelDeCombustivel += quantidade;
             return true;
         } else {
             System.out.println("ERRO: QUANTIDADE INVALIDA");
@@ -55,6 +55,14 @@ public class SistemaDeCombustivel {
             return false;
         }
         
+    }
+    
+    public void ajustarNivel(double gasto) {
+        if (this.nivelDeCombustivel - gasto > 0) {
+            this.nivelDeCombustivel -= gasto;
+        } else {
+            this.nivelDeCombustivel = 0;
+        }
     }
 }
 

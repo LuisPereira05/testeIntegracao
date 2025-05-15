@@ -16,13 +16,15 @@ public class Porta extends ComponenteCarro {
     private String cor;
     private String tipo;
     private boolean travada;
+    private String chave;
 
-    public Porta(SistemaEletrico sistemaE, String cor, String tipo, boolean travada, String estado, String material, String marca) {
+    public Porta(SistemaEletrico sistemaE, String cor, String tipo, boolean travada, String estado, String material, String marca, String chave) {
         super("Fechada", material, marca);
         this.sistemaE = sistemaE;
         this.cor = cor;
         this.tipo = tipo;
         this.travada = travada;
+        this.chave = chave;
     }
 
     
@@ -54,6 +56,19 @@ public class Porta extends ComponenteCarro {
             System.out.print("travada");
         } else {
             System.out.print("destravada");
+        }
+    }
+    
+    public void destravar(String c) {
+        if (travada) {
+            if (this.chave.equals(c)) {
+                this.travada = false;
+                System.out.println("Porta destravada");
+            } else {
+                System.out.println("INTENTO DE FURTO WIIWOOWIIWOOWIIWOOWIIWOO!!!");
+            }
+        } else {
+            System.out.println("A porta está destravada");
         }
     }
 }

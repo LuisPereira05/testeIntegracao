@@ -7,7 +7,7 @@ import com.testando.carro.Sistemas.*;
 
 /**
  *
- * @author Abner
+ * @author mandr
  */
 public class Transmissao extends ComponenteCarro{
     private SistemaDeTransmissao sistema;
@@ -24,18 +24,19 @@ public class Transmissao extends ComponenteCarro{
 
     @Override
     public void verificarEstado() {
-        System.out.println("Ótimo");
+        System.out.println("Marcha: " + marchaAtual);
     }
     
     
     
     
     public void aumentarMarcha(){
-        if(marchaAtual < 6){
-            marchaAtual++;
-            System.out.println("Marcha aumentada para " + marchaAtual);
-        } else {
-            System.out.println("Não é possível aumentar mais!");
-        }
+        sistema.trocarMarcha(sistema.getEstado() + 1);
+        marchaAtual = sistema.getEstado();
+    }
+    
+    public void diminuirMarcha(){
+        sistema.trocarMarcha(sistema.getEstado() - 1);
+        marchaAtual = sistema.getEstado();
     }
 }

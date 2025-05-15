@@ -6,7 +6,7 @@ package com.testando.carro;
 import com.testando.carro.Sistemas.SistemaEletrico;
 /**
  *
- * @author Abner
+ * @author mandr
  */
 
 public class Painel extends ComponenteCarro {
