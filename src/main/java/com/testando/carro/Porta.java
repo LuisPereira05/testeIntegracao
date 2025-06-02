@@ -10,8 +10,8 @@ import com.testando.carro.Sistemas.SistemaEletrico;
  *
  * @author mandr
  */
-
 public class Porta extends ComponenteCarro {
+
     public SistemaEletrico sistemaE;
     private String cor;
     private String tipo;
@@ -27,18 +27,16 @@ public class Porta extends ComponenteCarro {
         this.chave = chave;
     }
 
-    
-
     public void abrir() {
         if (!this.travada && this.estado.equals("Fechada")) {
             this.estado = "Aberta";
             System.out.println("Porta aberta.");
-        } else if(this.estado.equals("Aberta")){
+        } else if (this.estado.equals("Aberta")) {
             System.out.println("A porta já está aberta");
         } else {
             System.out.println("ERRO: PORTA TRAVADA WIIIWOOOWIIIWOOOWIIIWOOO!!!!");
         }
-        
+
     }
 
     public void fechar() {
@@ -46,7 +44,7 @@ public class Porta extends ComponenteCarro {
             this.estado = "Fechada";
             System.out.println("Porta fechada.");
         }
-        
+
     }
 
     @Override
@@ -58,7 +56,11 @@ public class Porta extends ComponenteCarro {
             System.out.print("destravada");
         }
     }
-    
+
+    public String getPosicao() {
+        return this.tipo;
+    }
+
     public void destravar(String c) {
         if (travada) {
             if (this.chave.equals(c)) {

@@ -1,16 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package com.testando.carro;
 
-import com.testando.carro.*;
 import com.testando.carro.Sistemas.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -28,12 +23,6 @@ public class CarroTest {
     Pneus pneus;
     ArrayList<Porta> portas;
     Suspensao suspensao;
-
-    @BeforeClass
-    public static void setUpClass() {}
-
-    @AfterClass
-    public static void tearDownClass() {}
 
     @Before
     public void setUp() {
@@ -57,8 +46,10 @@ public class CarroTest {
     }
 
     @After
-    public void tearDown() {}
+    public void tearDown() {
+    }
 
+    // ✅ Teste de integração completo
     @Test
     public void testIntegracaoCarro() {
         portas.get(0).destravar("12345");
@@ -71,5 +62,61 @@ public class CarroTest {
         transmissao.aumentarMarcha();
         carro.verificarTudo();
         carro.acelerar();
+    }
+
+    // ✅ assertArrayEquals
+    @Test
+    public void testAssertArrayEquals() {
+        String[] esperado = {"delanteira esquerda", "delanteira direita"};
+        String[] real = {
+            portas.get(0).getPosicao(),
+            portas.get(1).getPosicao()
+        };
+        assertArrayEquals(esperado, real);
+    }
+
+    // ✅ assertEquals como alternativa para Iterable
+    @Test
+    public void testAssertIterableEqualsSimulada() {
+        List<String> esperado = Arrays.asList("Fechada", "Fechada");
+        List<String> real = Arrays.asList(portas.get(0).estado, portas.get(1).estado);
+        assertEquals(esperado, real);
+    }
+
+    // ✅ assertNull
+    @Test
+    public void testAssertNull() {
+        Banco banco = null;
+        assertNull(banco);
+    }
+
+    // ✅ assertThrows (modo compatível com JUnit 4)
+    @Test
+    public void testAssertThrowsSimulado() {
+        try {
+            throw new IllegalArgumentException("Erro simulado");
+        } catch (IllegalArgumentException e) {
+            assertEquals("Erro simulado", e.getMessage());
+        }
+    }
+
+    // ✅ assertTrue com tempo como substituto de assertTimeout
+    @Test
+    public void testTimeoutSimulado() {
+        long start = System.currentTimeMillis();
+        try {
+            Thread.sleep(100); // simula operação demorada
+        } catch (InterruptedException e) {
+            fail("Thread interrompida");
+        }
+        long duration = System.currentTimeMillis() - start;
+        assertTrue("Operação demorou demais", duration < 500);
+    }
+
+    // ✅ assertTrue como substituto de assertLinesMatch
+    @Test
+    public void testSimulandoAssertLinesMatch() {
+        String mensagem = "Carro acelerando";
+        assertTrue(mensagem.matches("Carro.*"));
     }
 }

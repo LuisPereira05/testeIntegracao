@@ -13,20 +13,21 @@
     </properties>
     <!-- ... -->
     <dependencies>
-        <!-- ... -->
+        <!-- JUnit 4 -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Mockito (compatível com JUnit 4) -->
         <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>5.10.2</version> <!-- can be omitted when using the BOM -->
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>5.12.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- ... -->
     </dependencies>
     <!-- ... -->
     <build>
