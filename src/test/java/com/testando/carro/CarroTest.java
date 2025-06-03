@@ -49,7 +49,6 @@ public class CarroTest {
     public void tearDown() {
     }
 
-    // ✅ Teste de integração completo
     @Test
     public void testIntegracaoCarro() {
         portas.get(0).destravar("12345");
@@ -64,7 +63,6 @@ public class CarroTest {
         carro.acelerar();
     }
 
-    // ✅ assertArrayEquals
     @Test
     public void testAssertArrayEquals() {
         String[] esperado = {"delanteira esquerda", "delanteira direita"};
@@ -75,7 +73,6 @@ public class CarroTest {
         assertArrayEquals(esperado, real);
     }
 
-    // ✅ assertEquals como alternativa para Iterable
     @Test
     public void testAssertIterableEqualsSimulada() {
         List<String> esperado = Arrays.asList("Fechada", "Fechada");
@@ -83,14 +80,12 @@ public class CarroTest {
         assertEquals(esperado, real);
     }
 
-    // ✅ assertNull
     @Test
     public void testAssertNull() {
         Banco banco = null;
         assertNull(banco);
     }
 
-    // ✅ assertThrows (modo compatível com JUnit 4)
     @Test
     public void testAssertThrowsSimulado() {
         try {
@@ -100,7 +95,6 @@ public class CarroTest {
         }
     }
 
-    // ✅ assertTrue com tempo como substituto de assertTimeout
     @Test
     public void testTimeoutSimulado() {
         long start = System.currentTimeMillis();
@@ -113,7 +107,6 @@ public class CarroTest {
         assertTrue("Operação demorou demais", duration < 500);
     }
 
-    // ✅ assertTrue como substituto de assertLinesMatch
     @Test
     public void testSimulandoAssertLinesMatch() {
         String mensagem = "Carro acelerando";
