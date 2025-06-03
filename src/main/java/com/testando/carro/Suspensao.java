@@ -12,13 +12,11 @@ import com.testando.carro.Sistemas.SistemaEletrico;
  */
 public class Suspensao extends ComponenteCarro{
 
-    // Atributos
     public SistemaEletrico sistemaE;
     private String tipo;
     private double altura;
     private int rigidez;
 
-    // Construtor vazio
 
     public Suspensao(SistemaEletrico sistemaE, String tipo, double altura, int rigidez, String estado, String material, String marca) {
         super(estado, material, marca);

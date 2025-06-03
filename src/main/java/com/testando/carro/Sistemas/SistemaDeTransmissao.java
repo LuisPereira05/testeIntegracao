@@ -28,9 +28,8 @@ public class SistemaDeTransmissao {
     }
     
 
-    // Métodos
 
-    // Troca a marcha da transmissão
+
     public void trocarMarcha(int marcha) {
         if (marcha >= 0 && marcha <= this.numeroDeMarchas) {
             this.estado = marcha;

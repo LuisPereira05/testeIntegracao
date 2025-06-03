@@ -54,7 +54,7 @@ public class Motor extends ComponenteCarro{
         
     }
 
-    // Desliga o motor
+
     public void desligar() {
         if (this.ligado) {
             this.ligado = false;
@@ -62,7 +62,7 @@ public class Motor extends ComponenteCarro{
         System.out.println("Motor desligado");
     }
 
-    // Verifica o estado do motor
+
     @Override
     public void verificarEstado() {
         if (ligado) {

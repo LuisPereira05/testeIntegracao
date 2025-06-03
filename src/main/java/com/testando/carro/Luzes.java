@@ -12,14 +12,12 @@ import com.testando.carro.Sistemas.SistemaEletrico;
  */
 public class Luzes extends ComponenteCarro{
 
-    // Atributos
     public SistemaEletrico sistemaE;
     private String tipo;
     private int intensidade;
     private String cor;
     private String modelo;
 
-    // Construtor vazio
 
     public Luzes(SistemaEletrico sistemaE, String tipo, int intensidade, String cor, String modelo, String material, String marca) {
         super("Desligadas", material, marca);
@@ -31,8 +29,7 @@ public class Luzes extends ComponenteCarro{
     }
     
 
-    // Métodos
-    // Liga as luzes
+
     public void ligar() {
         if (this.estado.equals("Desligadas")) {
             this.estado = "Ligadas";
@@ -41,7 +38,7 @@ public class Luzes extends ComponenteCarro{
         }
     }
 
-    // Desliga as luzes
+
     public void desligar() {
         if (this.estado.equals("Ligadas")) {
            this.estado = "Desligadas";
@@ -50,7 +47,7 @@ public class Luzes extends ComponenteCarro{
         }
     }
 
-    // Ajusta a intensidade das luzes
+
     public void ajustarIntensidade(int novaIntensidade) {
         switch (novaIntensidade) {
             case 1:

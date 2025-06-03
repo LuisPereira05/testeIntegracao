@@ -100,7 +100,6 @@ public class Carro {
     }
 
     public static void main(String[] args) {
-        // Criar instâncias das classes envolvidas
 
         SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", 0);
         Transmissao transmissao = new Transmissao(sistemaT, 0, "Otimo");
