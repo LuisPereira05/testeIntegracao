@@ -52,6 +52,9 @@ public class Painel extends ComponenteCarro {
         }
     }
     
+    public boolean getLigado() {
+        return ligado;
+    }
 
     @Override
     public void verificarEstado() {

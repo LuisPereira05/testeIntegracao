@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.039" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.078" tests="8" errors="0" skipped="0" failures="4">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\viky2\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\viky2\.m2\repository\org\junit\vintage\junit-vintage-engine\5.10.2\junit-vintage-engine-5.10.2.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="java.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\viky2\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\viky2\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -16,9 +16,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\viky2\AppData\Local\Temp\surefire2501996167780793449\surefirebooter-20250515161731920_3.jar C:\Users\viky2\AppData\Local\Temp\surefire2501996167780793449 2025-05-15T16-17-31_797-jvmRun1 surefire-20250515161731920_1tmp surefire_0-20250515161731920_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\viky2\AppData\Local\Temp\surefire5632151375470752594\surefirebooter-20250609171038820_3.jar C:\Users\viky2\AppData\Local\Temp\surefire5632151375470752594 2025-06-09T17-10-38_705-jvmRun1 surefire-20250609171038820_1tmp surefire_0-20250609171038820_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\viky2\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\viky2\.m2\repository\org\junit\vintage\junit-vintage-engine\5.10.2\junit-vintage-engine-5.10.2.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\viky2\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\viky2\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\viky2"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\viky2\AppData\Local\Temp\surefire2501996167780793449\surefirebooter-20250515161731920_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\viky2\AppData\Local\Temp\surefire5632151375470752594\surefirebooter-20250609171038820_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22.0.2+9-70"/>
@@ -61,23 +61,84 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="testIntegracaoCarro" classname="com.testando.carro.CarroTest" time="0.03">
+  <testcase name="testPainelLigarAtualizar" classname="com.testando.carro.CarroTest" time="0.043">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at com.testando.carro.CarroTest.testPainelLigarAtualizar(CarroTest.java:86)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[Display ligado.
+Informações atualizadas: Velocidade: 100km/h
+]]></system-out>
+  </testcase>
+  <testcase name="testPortaDestravarErrado" classname="com.testando.carro.CarroTest" time="0.003">
+    <failure message="Expected java.lang.SecurityException to be thrown, but nothing was thrown." type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Expected java.lang.SecurityException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
+	at com.testando.carro.CarroTest.testPortaDestravarErrado(CarroTest.java:52)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[INTENTO DE FURTO WIIWOOWIIWOOWIIWOOWIIWOO!!!
+]]></system-out>
+  </testcase>
+  <testcase name="testMotorTimeoutOperacao" classname="com.testando.carro.CarroTest" time="0.002">
+    <system-out><![CDATA[Carro acelerando
+]]></system-out>
+  </testcase>
+  <testcase name="testPortaAbrirFechar" classname="com.testando.carro.CarroTest" time="0.001">
     <system-out><![CDATA[Porta destravada
 Porta aberta.
-Sistema elétrico ativado.
 Porta fechada.
-Motor ligado
-Display ligado.
-Combustivel: 70.0
-Bateria: Carregada
-Motor: Ligado
-FREIOS: Nível de desgaste -> 0.0%
-LUZES: Estado: Desligadas Intensidade: 1
-Painel (Smart) está: Desligado
-Porta (delanteira esquerda) está: Fechada e 
-destravadaPorta (delanteira direita) está: Fechada e 
-travadaMarcha: 1
-Carro acelerando
+]]></system-out>
+  </testcase>
+  <testcase name="testMotorLigarAcelerar" classname="com.testando.carro.CarroTest" time="0.001">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
+	at com.testando.carro.CarroTest.testMotorLigarAcelerar(CarroTest.java:63)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[ERRO: Sem combustivel
+]]></system-out>
+  </testcase>
+  <testcase name="testTransmissaoEstadosIteravel" classname="com.testando.carro.CarroTest" time="0.002"/>
+  <testcase name="testTransmissaoTrocarMarcha" classname="com.testando.carro.CarroTest" time="0.001"/>
+  <testcase name="testPainelLinhasStatus" classname="com.testando.carro.CarroTest" time="0.002">
+    <failure message="iterable contents differ at index [0], expected: &lt;Velocidade: 100km/h&gt; but was: &lt;Painel: Smart&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: iterable contents differ at index [0], expected: <Velocidade: 100km/h> but was: <Painel: Smart>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertIterableEquals.failIterablesNotEqual(AssertIterableEquals.java:179)
+	at org.junit.jupiter.api.AssertIterableEquals.assertIterableElementsEqual(AssertIterableEquals.java:123)
+	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:72)
+	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:51)
+	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:42)
+	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:38)
+	at org.junit.jupiter.api.Assertions.assertIterableEquals(Assertions.java:1504)
+	at com.testando.carro.CarroTest.testPainelLinhasStatus(CarroTest.java:96)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[Display ligado.
+Informações atualizadas: Velocidade: 100km/h
+Combustível: 50%
 ]]></system-out>
   </testcase>
 </testsuite>

@@ -27,7 +27,9 @@ public class Transmissao extends ComponenteCarro{
         System.out.println("Marcha: " + marchaAtual);
     }
     
-    
+    public SistemaDeTransmissao getSistemaDeTransmissao() {
+        return sistema;
+    }
     
     
     public void aumentarMarcha(){

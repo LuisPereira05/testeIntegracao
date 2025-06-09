@@ -90,6 +90,26 @@ public class Carro {
         transmissao.verificarEstado();
     }
     
+    public ArrayList<Porta> getPortas() {
+        return portas;
+    }
+    public Motor getMotor() {
+        return motor;
+    }
+    public SistemaEletrico getSistemaE() {
+        return sistemaE;
+    }
+    public SistemaDeCombustivel getSistemaC() {
+        return sistemaC;
+    }
+    public Painel getPainel() {
+        return painel;
+    }
+    public Transmissao getTransmissao() {
+        return transmissao;
+    }
+    
+    
     
     
     

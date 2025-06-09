@@ -1,147 +1,129 @@
 package com.testando.carro;
 
-import static org.junit.Assert.*;
-
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.Test;
-
 import com.testando.carro.Sistemas.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarroTest {
 
-    // --- Testes para Banco ---
-    @Test
-    public void testAjustarEncostoComBateriaAtiva() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Chumbo-ácido", true, "MarcaA");
-        Banco banco = new Banco(sistemaE, "Reclinável", "Couro", "MarcaBanco", "Preto", "Esportivo");
+    private Carro carro;
+    private String chavePorta = "12345";
 
-        banco.ajustarEncosto("Vertical");
-        assertEquals("Vertical", banco.getEstado());
+    @BeforeEach
+    public void setup() {
+        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 0.0, "GM", true);
+        SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
+        SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", 0);
+
+        Motor motor = new Motor(sistemaC, sistemaE, "V10", 1200, 5.0, false, "Otimo", "Aço", "Bugatti");
+        Freios freios = new Freios("ABS", 12.0, 0.0, "Desativados", "Ceramica", "Volvo");
+        Luzes luzes = new Luzes(sistemaE, "LED", 1, "branco", "Fisheye", "Vidro", "Phillips");
+        Painel painel = new Painel(sistemaE, "Desligado", "Vidro", "Philips", "Smart", "LED", false);
+        Pneus pneus = new Pneus("15x6", "tuner", 40.0, 38.0, "aluminio", "Chevrolet");
+        Suspensao suspensao = new Suspensao(sistemaE, "esportivo", 20.0, 2, "nova", "fibra de carbono", "Ferrari");
+        Transmissao transmissao = new Transmissao(sistemaT, 0, "Otimo");
+
+        ArrayList<Porta> portas = new ArrayList<>();
+        portas.add(new Porta(sistemaE, "Vermelho", "delanteira esquerda", true, "Fechada", "fibra de carbono", "Volvo", chavePorta));
+        portas.add(new Porta(sistemaE, "Vermelho", "delanteira direita", true, "Fechada", "fibra de carbono", "Volvo", chavePorta));
+
+        carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, sistemaC, sistemaE, sistemaT, motor, freios, luzes, painel, pneus, portas, suspensao, transmissao);
     }
 
+    // ==== TESTES PORTA ====
+
     @Test
-    public void testAjustarAlturaSemBateria() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Chumbo-ácido", false, "MarcaA");
-        Banco banco = new Banco(sistemaE, "Reclinável", "Couro", "MarcaBanco", "Preto", "Esportivo");
+    public void testPortaAbrirFechar() {
+        carro.getPortas().get(0).destravar(chavePorta);
+        carro.getPortas().get(0).abrir();
+        assertEquals("Aberta", carro.getPortas().get(0).estado);
 
-        banco.ajustarAltura(20.0);
-        assertEquals(0.0, banco.altura, 0.0001);
-    }
-
-    // --- Testes para Motor ---
-    @Test
-    public void testMotorLigarEDesligar() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Lithium", true, "MarcaE");
-        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 50, 10, "MarcaC", true);
-
-        Motor motor = new Motor(sistemaC, sistemaE, "V8", 300, 5.0, false, "Desligado", "Aço", "MarcaM");
-        motor.ligarMotor();
-        assertTrue(motor.ligado);
-
-        motor.desligar();
-        assertFalse(motor.ligado);
-    }
-
-    @Test(timeout=100)
-    public void testMotorAcelerarGastaCombustivel() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Lithium", true, "MarcaE");
-        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Diesel", 100, 50, "MarcaC", true);
-
-        Motor motor = new Motor(sistemaC, sistemaE, "Diesel", 150, 3.0, true, "Ligado", "Aço", "MarcaM");
-        double nivelAntes = sistemaC.verificarNivel();
-        motor.acelerar();
-        double nivelDepois = sistemaC.verificarNivel();
-
-        assertTrue(nivelDepois < nivelAntes);
-    }
-
-    // --- Testes para Luzes ---
-    @Test
-    public void testLuzesLigarDesligar() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Chumbo-ácido", true, "MarcaL");
-        Luzes luzes = new Luzes(sistemaE, "LED", 1, "Branco", "ModeloX", "Plástico", "MarcaL");
-
-        luzes.ligar();
-        assertEquals("Ligadas", luzes.estado);
-
-        luzes.desligar();
-        assertEquals("Desligadas", luzes.estado);
+        carro.getPortas().get(0).fechar();
+        assertEquals("Fechada", carro.getPortas().get(0).estado);
     }
 
     @Test
-    public void testAjustarIntensidadeInvalida() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "Chumbo-ácido", true, "MarcaL");
-        Luzes luzes = new Luzes(sistemaE, "Halogena", 2, "Amarelo", "ModeloY", "Metal", "MarcaL");
-
-        luzes.ajustarIntensidade(5); // inválido
-        assertEquals(2, luzes.intensidade);
+    public void testPortaDestravarErrado() {
+        // Tentar destravar com chave errada lança exceção (exemplo)
+        assertThrows(SecurityException.class, () -> {
+            carro.getPortas().get(0).destravar("chaveErrada");
+        });
     }
 
-    // --- Testes para Porta ---
-    @Test
-    public void testAbrirPortaTravada() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "NiMH", true, "MarcaP");
-        Porta porta = new Porta(sistemaE, "Vermelho", "Dianteira", true, "Fechada", "Metal", "MarcaP", "1234");
 
-        porta.abrir();
-        assertEquals("Fechada", porta.getEstado());
-    }
-
-    @Test(expected=RuntimeException.class)
-    public void testDestravarPortaComChaveIncorreta() {
-        SistemaEletrico sistemaE = new SistemaEletrico(12, 100, "NiMH", true, "MarcaP");
-        Porta porta = new Porta(sistemaE, "Preto", "Traseira", true, "Fechada", "Metal", "MarcaP", "4321");
-
-        porta.destravar("1234"); // deve lançar exceção
-    }
-
-    // --- Testes para Transmissao ---
-    @Test
-    public void testAumentarEDiminuirMarcha() {
-        SistemaDeTransmissao sistema = new SistemaDeTransmissao("Manual", 6, "Aço", "MarcaT", 1);
-        Transmissao transmissao = new Transmissao(sistema, 1, "Funcionando");
-
-        transmissao.aumentarMarcha();
-        assertEquals(2, transmissao.marchaAtual);
-
-        transmissao.diminuirMarcha();
-        assertEquals(1, transmissao.marchaAtual);
-    }
-
-    @Test(expected=RuntimeException.class)
-    public void testTrocarMarchaInvalida() {
-        SistemaDeTransmissao sistema = new SistemaDeTransmissao("Manual", 5, "Aço", "MarcaT", 3);
-        sistema.trocarMarcha(10); // deve lançar exceção
-    }
-
-    // --- Tests para arrays e listas (substituindo assertIterableEquals e assertLinesMatch) ---
+    // ==== TESTES MOTOR ====
 
     @Test
-    public void testAssertArrayEquals() {
-        String[] esperado = {"Vermelho", "Preto", "Azul"};
-        String[] atual = {"Vermelho", "Preto", "Azul"};
-        assertArrayEquals(esperado, atual);
+    public void testMotorLigarAcelerar() {
+        carro.getMotor().ligarMotor();
+        assertTrue(carro.getMotor().ligado);
+
+        carro.acelerar();
+        // Nível de combustível diminuiu
+        assertTrue(carro.getSistemaC().verificarNivel() < 75.0);
     }
 
     @Test
-    public void testAssertEqualsListas() {
-        List<String> esperado = Arrays.asList("LED", "Halogena", "Xenon");
-        List<String> atual = Arrays.asList("LED", "Halogena", "Xenon");
-        assertEquals(esperado, atual);
+    public void testMotorTimeoutOperacao() {
+        // Testa que acelerar não demora mais que 1 segundo (simulando demora)
+        assertTimeout(Duration.ofSeconds(1), () -> {
+            carro.acelerar();
+        });
+    }
+
+    // ==== TESTES PAINEL ====
+
+    @Test
+    public void testPainelLigarAtualizar() {
+        carro.getPainel().ligarDisplay();
+        assertTrue(carro.getPainel().getLigado());
+
+        carro.getPainel().atualizarInformacoes("Velocidade: 100km/h");
+        assertTrue(carro.getPainel().exibirStatus().contains("Velocidade: 100km/h"));
     }
 
     @Test
-    public void testAssertEqualsLinhas() {
-        List<String> esperado = Arrays.asList("Motor: Ligado", "Banco ajustado para: Vertical");
-        List<String> atual = Arrays.asList("Motor: Ligado", "Banco ajustado para: Vertical");
-        assertEquals(esperado, atual);
+    public void testPainelLinhasStatus() {
+        carro.getPainel().ligarDisplay();
+        carro.getPainel().atualizarInformacoes("Velocidade: 100km/h\nCombustível: 50%");
+        List<String> linhasEsperadas = List.of("Velocidade: 100km/h", "Combustível: 50%");
+        // Transformar a string do painel em lista de linhas para comparar
+        List<String> linhasAtuais = List.of(carro.getPainel().exibirStatus().split("\n"));
+        assertIterableEquals(linhasEsperadas, linhasAtuais);
+    }
+
+    // ==== TESTES TRANSMISSAO ====
+
+    @Test
+    public void testTransmissaoTrocarMarcha() {
+        carro.getTransmissao().aumentarMarcha();
+        assertEquals(1, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+
+        carro.getTransmissao().aumentarMarcha();
+        assertEquals(2, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+
+        carro.getTransmissao().diminuirMarcha();
+        assertEquals(1, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
     }
 
     @Test
-    public void testAssertNull() {
-        Banco banco = null;
-        assertNull(banco);
+    public void testTransmissaoEstadosIteravel() {
+        // Checa se a lista das marchas atuais é iterável e igual à esperada
+        List<Integer> marchasEsperadas = List.of(0, 1, 2);
+        List<Integer> marchasAtuais = new ArrayList<>();
+        marchasAtuais.add(0);
+        carro.getTransmissao().aumentarMarcha();
+        marchasAtuais.add(carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+        carro.getTransmissao().aumentarMarcha();
+        marchasAtuais.add(carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+
+        assertIterableEquals(marchasEsperadas, marchasAtuais);
     }
+
 }
+
+
