@@ -1,5 +1,4 @@
 com\testando\carro\Banco.class
-com\testando\carro\Sistemas\SistemaDeDirecao.class
 com\testando\carro\Freios.class
 com\testando\carro\Ligavel.class
 com\testando\carro\Motor.class
