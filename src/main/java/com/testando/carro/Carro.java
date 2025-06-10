@@ -50,6 +50,7 @@ public class Carro {
     public void acelerar() {
         System.out.println("Carro acelerando");
         this.motor.acelerar();
+        
     }
 
     public Carro(String modelo, int ano, String cor, String placa, double quilometragem, SistemaDeCombustivel sistemaC, SistemaEletrico sistemaE, SistemaDeTransmissao sistemaT, Motor motor, Freios freios, Luzes luzes, Painel painel, Banco banco, Pneus pneus, ArrayList<Porta> portas, Suspensao suspensao, Transmissao transmissao) {

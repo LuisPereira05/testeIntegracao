@@ -10,7 +10,6 @@ package com.testando.carro;
  */
 public class Freios extends ComponenteCarro{
 
-    // Atributos
     private String tipo;
     private double tamanho;
     private double nivelDeDesgaste;

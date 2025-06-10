@@ -1,67 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.082" tests="18" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.107" tests="18" errors="0" skipped="0" failures="2">
   <properties>
-    <property name="java.specification.version" value="22"/>
+    <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\viky2\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\viky2\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
+    <property name="java.class.path" value="C:\Users\IFSul\Documents\GitHub\testeIntegracao\target\test-classes;C:\Users\IFSul\Documents\GitHub\testeIntegracao\target\classes;C:\Users\IFSul\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\IFSul\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\IFSul\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\IFSul\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\IFSul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\IFSul\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\IFSul\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\IFSul\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\IFSul\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\IFSul\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
-    <property name="user.timezone" value="America/Montevideo"/>
-    <property name="user.country.format" value="UY"/>
+    <property name="user.timezone" value="America/Sao_Paulo"/>
     <property name="os.name" value="Windows 11"/>
-    <property name="java.vm.specification.version" value="22"/>
-    <property name="user.country" value="US"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="user.country" value="BR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\viky2\AppData\Local\Temp\surefire2298823266970098439\surefirebooter-20250610151614438_3.jar C:\Users\viky2\AppData\Local\Temp\surefire2298823266970098439 2025-06-10T15-16-14_323-jvmRun1 surefire-20250610151614438_1tmp surefire_0-20250610151614438_2tmp"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-23\bin"/>
+    <property name="sun.java.command" value="C:\Users\IFSul\AppData\Local\Temp\surefire517772759908197645\surefirebooter-20250610200221159_3.jar C:\Users\IFSul\AppData\Local\Temp\surefire517772759908197645 2025-06-10T20-02-21_041-jvmRun1 surefire-20250610200221159_1tmp surefire_0-20250610200221159_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\viky2\Documents\Github\testeIntegracao\target\test-classes;C:\Users\viky2\Documents\Github\testeIntegracao\target\classes;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\viky2\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\viky2\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\viky2\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\viky2\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\viky2\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\viky2\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\viky2\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\IFSul\Documents\GitHub\testeIntegracao\target\test-classes;C:\Users\IFSul\Documents\GitHub\testeIntegracao\target\classes;C:\Users\IFSul\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\IFSul\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\IFSul\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\IFSul\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\IFSul\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\IFSul\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\IFSul\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\IFSul\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\IFSul\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\IFSul\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="C:\Users\viky2"/>
-    <property name="user.language" value="en"/>
+    <property name="user.home" value="C:\Users\IFSul"/>
+    <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.version.date" value="2024-07-16"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-22"/>
+    <property name="java.version.date" value="2024-10-15"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-23"/>
     <property name="file.separator" value="\"/>
-    <property name="basedir" value="C:\Users\viky2\Documents\Github\testeIntegracao"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="basedir" value="C:\Users\IFSul\Documents\GitHub\testeIntegracao"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\viky2\AppData\Local\Temp\surefire2298823266970098439\surefirebooter-20250610151614438_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\IFSul\AppData\Local\Temp\surefire517772759908197645\surefirebooter-20250610200221159_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="22.0.2+9-70"/>
-    <property name="user.name" value="viky2"/>
+    <property name="java.runtime.version" value="23.0.1+11-39"/>
+    <property name="user.name" value="IFSul"/>
     <property name="stdout.encoding" value="Cp1252"/>
     <property name="path.separator" value=";"/>
     <property name="os.version" value="10.0"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-22\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
-    <property name="localRepository" value="C:\Users\viky2\.m2\repository"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-23\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\IFSul\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="C:\Users\viky2\AppData\Local\Temp\"/>
-    <property name="java.version" value="22.0.2"/>
-    <property name="user.dir" value="C:\Users\viky2\Documents\Github\testeIntegracao"/>
+    <property name="java.io.tmpdir" value="C:\Users\IFSul\AppData\Local\Temp\"/>
+    <property name="java.version" value="23.0.1"/>
+    <property name="user.dir" value="C:\Users\IFSul\Documents\GitHub\testeIntegracao"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.language.format" value="es"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Inkscape\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\viky2\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\viky2\AppData\Local\Programs\Python\Python312\;C:\Users\viky2\AppData\Local\Microsoft\WindowsApps;C:\Users\viky2\.dotnet\tools;C:\Users\viky2\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\viky2\AppData\Local\GitHubDesktop\bin;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-23\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python313\Scripts\;C:\Program Files\Python313\;C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot\bin;C:\Program Files\Eclipse Adoptium\jre-8.0.432.6-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\src\flutter\bin;C:\Program Files\Git\cmd;C:\ProgramData\UNIVALI\Portugol Studio;C:\Program Files\nodejs\;C:\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\IFSul\AppData\Local\Microsoft\WindowsApps;C:\src\flutter\bin;C:\Users\IFSul\AppData\Local\GitHubDesktop\bin;C:\Users\IFSul\AppData\Roaming\npm;C:\Users\IFSul\AppData\Roaming\Composer\vendor\bin;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="22.0.2+9-70"/>
+    <property name="java.vm.version" value="23.0.1+11-39"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="java.class.version" value="66.0"/>
+    <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testPortaInicialmenteTravada" classname="com.testando.carro.CarroTest" time="0.033">
+  <testcase name="testPortaInicialmenteTravada" classname="com.testando.carro.CarroTest" time="0.035">
     <system-out><![CDATA[ERRO: PORTA TRAVADA WIIIWOOOWIIIWOOOWIIIWOOO!!!!
 ]]></system-out>
   </testcase>
@@ -70,12 +68,12 @@
     <system-out><![CDATA[Display ligado.
 ]]></system-out>
   </testcase>
-  <testcase name="testFreiarMultiplasVezesAcumulaDesgaste" classname="com.testando.carro.CarroTest" time="0.0"/>
-  <testcase name="testMotorLigar" classname="com.testando.carro.CarroTest" time="0.001">
-    <system-out><![CDATA[ERRO: Sem combustivel
+  <testcase name="testFreiarMultiplasVezesAcumulaDesgaste" classname="com.testando.carro.CarroTest" time="0.001"/>
+  <testcase name="testMotorLigar" classname="com.testando.carro.CarroTest" time="0.002">
+    <system-out><![CDATA[Motor ligado
 ]]></system-out>
   </testcase>
-  <testcase name="testLuzesTipoNaoNula" classname="com.testando.carro.CarroTest" time="0.001"/>
+  <testcase name="testLuzesTipoNaoNula" classname="com.testando.carro.CarroTest" time="0.002"/>
   <testcase name="testMotorTimeoutOperacao" classname="com.testando.carro.CarroTest" time="0.002">
     <system-out><![CDATA[Carro acelerando
 ]]></system-out>
@@ -84,27 +82,59 @@
     <system-out><![CDATA[Encosto ajustado para: Reclinado
 ]]></system-out>
   </testcase>
-  <testcase name="testAjustarPressaoExcedeCapacidadeComAssertNotEquals" classname="com.testando.carro.CarroTest" time="0.002">
+  <testcase name="testAjustarPressaoExcedeCapacidadeComAssertNotEquals" classname="com.testando.carro.CarroTest" time="0.003">
     <system-out><![CDATA[ERRO: CAPACIDADE INVALIDA (Maior que a capacidade)
 ]]></system-out>
   </testcase>
-  <testcase name="testTransmissaoTrocarMarcha" classname="com.testando.carro.CarroTest" time="0.001"/>
-  <testcase name="testAjustarAlturaComAssertTimeout" classname="com.testando.carro.CarroTest" time="0.005">
+  <testcase name="testTransmissaoTrocarMarcha" classname="com.testando.carro.CarroTest" time="0.005">
+    <failure message="expected: &lt;1&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
+	at com.testando.carro.CarroTest.testTransmissaoTrocarMarcha(CarroTest.java:90)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
+    <system-out><![CDATA[ERRO: Marcha Inválida
+]]></system-out>
+  </testcase>
+  <testcase name="testAjustarAlturaComAssertTimeout" classname="com.testando.carro.CarroTest" time="0.006">
     <system-out><![CDATA[Altura ajustada para: 10.0 cm
 ]]></system-out>
   </testcase>
   <testcase name="testPainelDisplayIniciaDesligado" classname="com.testando.carro.CarroTest" time="0.001"/>
-  <testcase name="testPortaDestravarComChaveCorreta" classname="com.testando.carro.CarroTest" time="0.0">
+  <testcase name="testPortaDestravarComChaveCorreta" classname="com.testando.carro.CarroTest" time="0.001">
     <system-out><![CDATA[Porta destravada
 Porta aberta.
 ]]></system-out>
   </testcase>
   <testcase name="testSuspensaoAjustarAlturaValida" classname="com.testando.carro.CarroTest" time="0.001"/>
-  <testcase name="testNaoAumentaMarchaAcimaDoLimite" classname="com.testando.carro.CarroTest" time="0.001">
+  <testcase name="testNaoAumentaMarchaAcimaDoLimite" classname="com.testando.carro.CarroTest" time="0.002">
+    <failure message="A marcha não deve ultrapassar o limite máximo ==&gt; expected: &lt;6&gt; but was: &lt;0&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: A marcha não deve ultrapassar o limite máximo ==> expected: <6> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:559)
+	at com.testando.carro.CarroTest.testNaoAumentaMarchaAcimaDoLimite(CarroTest.java:111)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></failure>
     <system-out><![CDATA[ERRO: Marcha Inválida
+ERRO: Marcha Inválida
+ERRO: Marcha Inválida
+ERRO: Marcha Inválida
+ERRO: Marcha Inválida
+ERRO: Marcha Inválida
+ERRO: Marcha Inválida
 ]]></system-out>
   </testcase>
   <testcase name="testSuspensaoTipoEsperado" classname="com.testando.carro.CarroTest" time="0.001"/>
-  <testcase name="testLuzesEstadoInicial" classname="com.testando.carro.CarroTest" time="0.0"/>
-  <testcase name="testSubstituirPastilhasZeraDesgaste" classname="com.testando.carro.CarroTest" time="0.0"/>
+  <testcase name="testLuzesEstadoInicial" classname="com.testando.carro.CarroTest" time="0.001"/>
+  <testcase name="testSubstituirPastilhasZeraDesgaste" classname="com.testando.carro.CarroTest" time="0.001"/>
 </testsuite>

@@ -30,14 +30,7 @@ public class Motor extends ComponenteCarro{
         this.ligado = ligado;
     }
 
-    
 
-    
-
-    // Liga o motor (versão anterior do método preservada e integrada)
-    
-
-    // Método legado preservado
     public void ligarMotor() {
         if (!this.ligado) {
             if (sistemaE.verificarBateria() && sistemaC.verificarNivel() > 0) {
@@ -54,7 +47,7 @@ public class Motor extends ComponenteCarro{
         
     }
 
-    // Desliga o motor
+
     public void desligar() {
         if (this.ligado) {
             this.ligado = false;
@@ -62,7 +55,7 @@ public class Motor extends ComponenteCarro{
         System.out.println("Motor desligado");
     }
 
-    // Verifica o estado do motor
+
     @Override
     public void verificarEstado() {
         if (ligado) {

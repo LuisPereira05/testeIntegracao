@@ -10,7 +10,7 @@ package com.testando.carro;
  */
 public class Pneus extends ComponenteCarro{
 
-    // Atributos
+
     private String tamanho;
     private String tipo;
     private double capacidade;
@@ -18,7 +18,7 @@ public class Pneus extends ComponenteCarro{
 
 
 
-    // Construtor vazio
+
     public Pneus(String tamanho, String tipo, double capacidade, double pressao, String material, String marca) {    
         super("Otimo", material, marca);
         this.tamanho = tamanho;
@@ -27,10 +27,8 @@ public class Pneus extends ComponenteCarro{
         this.pressao = pressao;
     }
 
-    // Métodos
-    // Verifica a pressão dos pneus
+
     public double verificarPressao() {
-        // Implementação futura
         return this.pressao;
     }
 
@@ -40,7 +38,7 @@ public class Pneus extends ComponenteCarro{
     
     
 
-    // Ajusta a pressão dos pneus
+
     public void ajustarPressao(double novaPressao) {
         if (novaPressao <= this.capacidade) {
             this.pressao = novaPressao;
@@ -48,18 +46,14 @@ public class Pneus extends ComponenteCarro{
             System.out.println("ERRO: CAPACIDADE INVALIDA (Maior que a capacidade)");
         }
     }
-    
-    
-    
 
     @Override
     public void verificarEstado() {
         
     }    
 
-    // Substitui o pneu
     @Override
     public void substituir() {
-        // Implementação futura
+        
     }
 }

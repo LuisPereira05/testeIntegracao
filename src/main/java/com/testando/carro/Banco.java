@@ -37,6 +37,9 @@ public class Banco extends ComponenteCarro {
 
     public void ajustarAltura(double novaAltura) {
         if (sistemaE.verificarBateria()) {
+            /*while(this.altura <= novaAltura){
+                this.altura += 0.00000001;
+            }*/
             this.altura = novaAltura;
             System.out.println("Altura ajustada para: " + novaAltura + " cm");
         } else {

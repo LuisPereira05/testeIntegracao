@@ -15,7 +15,7 @@ public class CarroTest {
 
     @BeforeEach
     public void setup() {
-        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 0.0, "GM", true);
+        SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 10.0, "GM", true);
         SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
         SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", 0);
 
@@ -59,7 +59,7 @@ public class CarroTest {
     @Test
     public void testMotorLigar() {
         carro.getMotor().ligarMotor();
-        assertFalse(carro.getMotor().ligado);
+        assertTrue(carro.getMotor().ligado);
     }
 
     @Test
@@ -136,11 +136,10 @@ public class CarroTest {
 
     @Test
     public void testAjustarPressaoExcedeCapacidadeComAssertNotEquals() {
-        double pressaoOriginal = carro.pneus.verificarPressao(); // deve ser 38.0
-        carro.pneus.ajustarPressao(45.0); // tenta passar do limite de 40.0
+        double pressaoOriginal = carro.pneus.verificarPressao();
+        carro.pneus.ajustarPressao(45.0);
         double pressaoAposAjuste = carro.pneus.verificarPressao();
 
-        // Verifica que a pressão não mudou, já que excede a capacidade
         assertNotEquals(45.0, pressaoAposAjuste, 
             "A pressão não deve ser ajustada para um valor maior que a capacidade");
     }
@@ -193,7 +192,6 @@ public class CarroTest {
     public void testFreiarMultiplasVezesAcumulaDesgaste() {
         carro.freios.substituirPastilhas();
 
-        // Simula 3 frenagens
         carro.freios.freiar();
         carro.freios.freiar();
         carro.freios.freiar();
@@ -201,5 +199,3 @@ public class CarroTest {
         assertEquals(15.0, carro.freios.getNivelDeDesgaste(), 0.0001, "Após 3 frenagens, o desgaste deve ser de 15%");
     }
 }
-
-
