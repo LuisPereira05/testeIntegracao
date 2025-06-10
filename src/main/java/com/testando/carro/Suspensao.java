@@ -35,20 +35,33 @@ public class Suspensao extends ComponenteCarro{
 
     // Ajusta a altura da suspensão
     public void ajustarAltura(double novaAltura) {
-        // Implementação futura
+        if (sistemaE.verificarBateria() && novaAltura >= 0) {
+            this.altura = novaAltura;
+        } else {
+            System.out.println("ERRO: Bateria vazia, ou altura errada");
+        }
     }
 
     // Retorna o estado atual da suspensão
 
     @Override
     public void verificarEstado() {
-        
+        System.out.println(this.estado);
+    }
+
+    public String getTipo() {
+        return tipo;
     }
     
+    
+    
 
-    // Substitui a suspensão por uma nova
-    public void substituir() {
-        // Implementação futura
+    public void ajustarRigidez(int novaRigidez) {
+        if (sistemaE.verificarBateria() && novaRigidez <= 100 && novaRigidez > 0) {
+            this.rigidez = novaRigidez;
+        } else {
+            System.out.println("ERRO: Bateria vazia, ou rigidez errada");
+        }
     }
 }
 

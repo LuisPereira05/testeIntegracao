@@ -61,7 +61,7 @@ public class Painel extends ComponenteCarro {
         System.out.println("Painel (" + tipo + ") está: " + estado);
     }
 
-    // ✅ Método solicitado
+
     public String exibirStatus() {
         return "Painel: " + tipo + "\n" +
                "Display: " + display + "\n" +

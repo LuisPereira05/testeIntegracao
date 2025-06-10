@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.testando.carro.CarroTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.078 s <<< FAILURE! -- in com.testando.carro.CarroTest
-com.testando.carro.CarroTest.testPainelLigarAtualizar -- Time elapsed: 0.043 s <<< FAILURE!
+Tests run: 18, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.104 s <<< FAILURE! -- in com.testando.carro.CarroTest
+com.testando.carro.CarroTest.testVerificarEstadoImpressao -- Time elapsed: 0.006 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
@@ -10,47 +10,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at com.testando.carro.CarroTest.testPainelLigarAtualizar(CarroTest.java:86)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-
-com.testando.carro.CarroTest.testPortaDestravarErrado -- Time elapsed: 0.003 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.SecurityException to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3111)
-	at com.testando.carro.CarroTest.testPortaDestravarErrado(CarroTest.java:52)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-
-com.testando.carro.CarroTest.testMotorLigarAcelerar -- Time elapsed: 0.001 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)
-	at com.testando.carro.CarroTest.testMotorLigarAcelerar(CarroTest.java:63)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
-
-com.testando.carro.CarroTest.testPainelLinhasStatus -- Time elapsed: 0.002 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: iterable contents differ at index [0], expected: <Velocidade: 100km/h> but was: <Painel: Smart>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertIterableEquals.failIterablesNotEqual(AssertIterableEquals.java:179)
-	at org.junit.jupiter.api.AssertIterableEquals.assertIterableElementsEqual(AssertIterableEquals.java:123)
-	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:72)
-	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:51)
-	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:42)
-	at org.junit.jupiter.api.AssertIterableEquals.assertIterableEquals(AssertIterableEquals.java:38)
-	at org.junit.jupiter.api.Assertions.assertIterableEquals(Assertions.java:1504)
-	at com.testando.carro.CarroTest.testPainelLinhasStatus(CarroTest.java:96)
+	at com.testando.carro.CarroTest.testVerificarEstadoImpressao(CarroTest.java:202)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)

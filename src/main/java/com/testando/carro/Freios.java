@@ -22,22 +22,17 @@ public class Freios extends ComponenteCarro{
         this.nivelDeDesgaste = nivelDeDesgaste;
     }
 
-    
+    public double getNivelDeDesgaste() {
+        return nivelDeDesgaste;
+    }
     
     
 
-    
-
-    // Métodos
-
-    // Retorna o nível de desgaste dos freios
     @Override
     public void verificarEstado() {
-        // Implementação futura
         System.out.println("FREIOS: Nível de desgaste -> " + this.nivelDeDesgaste + "%");
     }
 
-    // Substitui as pastilhas de freio
     public void substituirPastilhas() {
         this.nivelDeDesgaste = 0.0;
     }

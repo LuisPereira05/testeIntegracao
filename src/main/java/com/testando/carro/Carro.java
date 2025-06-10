@@ -24,6 +24,7 @@ public class Carro {
     Freios freios;
     Luzes luzes;
     Painel painel;
+    Banco banco;
     Pneus pneus;
     ArrayList<Porta> portas;
     Suspensao suspensao;
@@ -51,7 +52,7 @@ public class Carro {
         this.motor.acelerar();
     }
 
-    public Carro(String modelo, int ano, String cor, String placa, double quilometragem, SistemaDeCombustivel sistemaC, SistemaEletrico sistemaE, SistemaDeTransmissao sistemaT, Motor motor, Freios freios, Luzes luzes, Painel painel, Pneus pneus, ArrayList<Porta> portas, Suspensao suspensao, Transmissao transmissao) {
+    public Carro(String modelo, int ano, String cor, String placa, double quilometragem, SistemaDeCombustivel sistemaC, SistemaEletrico sistemaE, SistemaDeTransmissao sistemaT, Motor motor, Freios freios, Luzes luzes, Painel painel, Banco banco, Pneus pneus, ArrayList<Porta> portas, Suspensao suspensao, Transmissao transmissao) {
         this.modelo = modelo;
         this.ano = ano;
         this.cor = cor;
@@ -64,11 +65,14 @@ public class Carro {
         this.freios = freios;
         this.luzes = luzes;
         this.painel = painel;
+        this.banco = banco;
         this.pneus = pneus;
         this.portas = portas;
         this.suspensao = suspensao;
         this.transmissao = transmissao;
     }
+
+    
 
     
     public void verificarTudo() {
@@ -138,7 +142,7 @@ public class Carro {
         portas.add(new Porta(sistemaE, "Vermelho", "delanteira esquerda", true, "Fechada", "fibra de carbono", "Volvo", chave));
         portas.add(new Porta(sistemaE, "Vermelho", "delanteira direita", true, "Fechada", "fibra de carbono", "Volvo", chave));
         
-        Carro carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, sistemaC, sistemaE, sistemaT, motor, freios, luzes, painel, pneus, portas, suspensao, transmissao);
+        Carro carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, sistemaC, sistemaE, sistemaT, motor, freios, luzes, painel, banco, pneus, portas, suspensao, transmissao);
         //Carro carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, sistemaC, sistemaE, sistemaT, );
         // Realizar as ações de ligar o motor, ativar a transmissão e o sistema elétrico
         

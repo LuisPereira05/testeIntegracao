@@ -19,6 +19,20 @@ public class Luzes extends ComponenteCarro{
     private String cor;
     private String modelo;
 
+    public String getCor() {
+        return cor;
+    }
+
+    public int getIntensidade() {
+        return intensidade;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+   
+    
+
     // Construtor vazio
 
     public Luzes(SistemaEletrico sistemaE, String tipo, int intensidade, String cor, String modelo, String material, String marca) {
@@ -75,6 +89,7 @@ public class Luzes extends ComponenteCarro{
     public void verificarEstado() {
         System.out.println("LUZES: Estado: " + this.estado + " Intensidade: " + this.intensidade);
     }
+    
     
     
 }

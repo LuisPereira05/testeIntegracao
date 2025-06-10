@@ -37,6 +37,7 @@ public class Porta extends ComponenteCarro {
             System.out.println("A porta já está aberta");
         } else {
             System.out.println("ERRO: PORTA TRAVADA WIIIWOOOWIIIWOOOWIIIWOOO!!!!");
+            throw new RuntimeException("Porta está travada e não pode ser aberta");
         }
         
     }
