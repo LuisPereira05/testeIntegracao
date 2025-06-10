@@ -26,7 +26,9 @@ public class Freios extends ComponenteCarro{
         return nivelDeDesgaste;
     }
     
-    
+    public void freiar(){
+        this.nivelDeDesgaste += 5;
+    }
 
     @Override
     public void verificarEstado() {

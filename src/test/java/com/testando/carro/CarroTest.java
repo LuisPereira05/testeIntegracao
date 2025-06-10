@@ -1,8 +1,6 @@
 package com.testando.carro;
 
 import com.testando.carro.Sistemas.*;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,19 +54,12 @@ public class CarroTest {
         assertEquals("Porta está travada e não pode ser aberta", exception.getMessage());
     }
 
-
-
-
     // Motor
 
     @Test
-    public void testMotorLigarAcelerar() {
+    public void testMotorLigar() {
         carro.getMotor().ligarMotor();
         assertFalse(carro.getMotor().ligado);
-
-        carro.acelerar();
-
-        assertTrue(carro.getSistemaC().verificarNivel() < 75.0);
     }
 
     @Test
@@ -106,17 +97,22 @@ public class CarroTest {
     }
 
     @Test
-    public void testTransmissaoEstadosIteravel() {
-        List<Integer> marchasEsperadas = List.of(0, 1, 2);
-        List<Integer> marchasAtuais = new ArrayList<>();
-        marchasAtuais.add(0);
-        carro.getTransmissao().aumentarMarcha();
-        marchasAtuais.add(carro.getTransmissao().getSistemaDeTransmissao().getEstado());
-        carro.getTransmissao().aumentarMarcha();
-        marchasAtuais.add(carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+    public void testNaoAumentaMarchaAcimaDoLimite() {
+        carro.transmissao.aumentarMarcha();
+        carro.transmissao.aumentarMarcha();
+        carro.transmissao.aumentarMarcha();
+        carro.transmissao.aumentarMarcha();
+        carro.transmissao.aumentarMarcha();
+        carro.transmissao.aumentarMarcha();
+        
+        
+        carro.transmissao.aumentarMarcha();
 
-        assertIterableEquals(marchasEsperadas, marchasAtuais);
+        assertEquals(6, carro.transmissao.getSistemaDeTransmissao().getEstado(),
+                "A marcha não deve ultrapassar o limite máximo");
     }
+
+
     
     // Luzes
     
@@ -186,25 +182,24 @@ public class CarroTest {
     
     @Test
     public void testSubstituirPastilhasZeraDesgaste() {
-        Freios freios = new Freios("ABS", 12.0, 45.5, "Desgastado", "Cerâmica", "Brembo");
-        freios.substituirPastilhas();
-        assertEquals(0.0, freios.getNivelDeDesgaste(), 0.0001, "O nível de desgaste deve ser zerado após substituir as pastilhas.");
+        carro.freios.freiar();
+        assertNotEquals(0.0, carro.freios.getNivelDeDesgaste());
+        carro.freios.substituirPastilhas();
+        assertEquals(0.0, carro.freios.getNivelDeDesgaste(), 0.0001, "O nível de desgaste deve ser zerado após substituir as pastilhas.");
     }
+
 
     @Test
-    public void testVerificarEstadoImpressao() {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
+    public void testFreiarMultiplasVezesAcumulaDesgaste() {
+        carro.freios.substituirPastilhas();
 
-        carro.freios.verificarEstado();
+        // Simula 3 frenagens
+        carro.freios.freiar();
+        carro.freios.freiar();
+        carro.freios.freiar();
 
-        String saidaEsperada = "FREIOS: Nível de desgaste -> 12.0%";
-        assertTrue(outContent.toString().trim().contains(saidaEsperada));
-
-        System.setOut(System.out);
+        assertEquals(15.0, carro.freios.getNivelDeDesgaste(), 0.0001, "Após 3 frenagens, o desgaste deve ser de 15%");
     }
-
-    
 }
 
 

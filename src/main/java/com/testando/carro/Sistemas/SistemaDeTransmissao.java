@@ -32,7 +32,7 @@ public class SistemaDeTransmissao {
 
     // Troca a marcha da transmissão
     public void trocarMarcha(int marcha) {
-        if (marcha >= 0 && marcha <= this.numeroDeMarchas) {
+        if (marcha >= -1 && marcha <= this.numeroDeMarchas) {
             this.estado = marcha;
         } else {
             System.out.println("ERRO: Marcha Inválida");
