@@ -1,12 +1,22 @@
 package com.testando.carro;
 
-import com.testando.carro.Sistemas.*;
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertLinesMatch;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
-import java.time.Duration;
-import java.util.ArrayList;
+import com.testando.carro.Sistemas.SistemaDeCombustivel;
+import com.testando.carro.Sistemas.SistemaDeTransmissao;
+import com.testando.carro.Sistemas.SistemaEletrico;
 
 public class CarroTest {
 
@@ -15,7 +25,6 @@ public class CarroTest {
 
     @BeforeEach
     public void setup() {
-        // Instancia todos os componentes necessários para o carro
         SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 10.0, "GM", true);
         SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
         SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", 0);
@@ -38,7 +47,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoTravaPortas() {
-        // Verifica se ao acelerar, as portas são automaticamente travadas
+        System.out.println("\tEste teste está rodando: testAceleracaoTravaPortas");
         carro.portas.get(0).destravar(chavePorta);
         carro.acelerar();
 
@@ -51,7 +60,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoConsomeCombustivel() {
-        // Verifica se ao acelerar o nível de combustível é reduzido
+        System.out.println("\tEste teste está rodando: testAceleracaoConsomeCombustivel");
         double nivelAntes = carro.getSistemaC().verificarNivel();
         carro.acelerar();
         double nivelDepois = carro.getSistemaC().verificarNivel();
@@ -61,7 +70,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoDesgastaPneus() {
-        // Verifica se a capacidade dos pneus é reduzida após acelerar
+        System.out.println("\tEste teste está rodando: testAceleracaoDesgastaPneus");
         double capacidadeAntes = carro.pneus.getCapacidade();
         carro.acelerar();
         double capacidadeDepois = carro.pneus.getCapacidade();
@@ -71,7 +80,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoAumentaMarcha() {
-        // Verifica se a marcha aumenta ao acelerar
+        System.out.println("\tEste teste está rodando: testAceleracaoAumentaMarcha");
         int marchaAntes = carro.getTransmissao().getSistemaDeTransmissao().getEstado();
         carro.acelerar();
         int marchaDepois = carro.getTransmissao().getSistemaDeTransmissao().getEstado();
@@ -81,7 +90,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoReduzBateria() {
-        // Verifica se o sistema elétrico consome bateria ao acelerar
+        System.out.println("\tEste teste está rodando: testAceleracaoReduzBateria");
         double cargaAntes = carro.getSistemaE().capacidadeAtual();
         carro.acelerar();
         double cargaDepois = carro.getSistemaE().capacidadeAtual();
@@ -91,7 +100,7 @@ public class CarroTest {
 
     @Test
     public void testAceleracaoRecarregaBateria() {
-        // Simula que a bateria está descarregada e verifica se aceleração recarrega
+        System.out.println("\tEste teste está rodando: testAceleracaoRecarregaBateria");
         while (carro.getSistemaE().capacidadeAtual() > 0) {
             carro.getSistemaE().reduzirCarga(10.0);
         }
@@ -105,7 +114,7 @@ public class CarroTest {
 
     @Test
     public void testSuspensaoSeAjustaConformeMarcha() {
-        // Verifica se a suspensão é ajustada conforme a velocidade/marcha
+        System.out.println("\tEste teste está rodando: testSuspensaoSeAjustaConformeMarcha");
         carro.transmissao.aumentarMarcha(); // marcha 1
         carro.acelerar(); // marcha 2
         assertEquals(25.0, carro.suspensao.getAltura(), 0.01);
@@ -120,7 +129,7 @@ public class CarroTest {
 
     @Test
     public void testFrearAcendeLuzDeFreio() {
-        // Verifica se ao frear, as luzes acendem em modo freio
+        System.out.println("\tEste teste está rodando: testFrearAcendeLuzDeFreio");
         carro.frear();
         assertEquals("freio", carro.luzes.getTipo());
         assertEquals("Ligadas", carro.luzes.getEstado());
@@ -128,7 +137,7 @@ public class CarroTest {
 
     @Test
     public void testAbrirPortaComMotorLigadoLancaExcecao() {
-        // Verifica se tentar abrir a porta com o motor ligado lança exceção
+        System.out.println("\tEste teste está rodando: testAbrirPortaComMotorLigadoLancaExcecao");
         carro.getMotor().ligarMotor();
         Porta porta = carro.getPortas().get(0);
         porta.destravar("12345");
@@ -142,7 +151,7 @@ public class CarroTest {
 
     @Test
     public void testAbrirPortaComMotorDesligado() {
-        // Verifica se é possível abrir a porta normalmente com o motor desligado
+        System.out.println("\tEste teste está rodando: testAbrirPortaComMotorDesligado");
         Porta porta = carro.getPortas().get(0);
         porta.destravar("12345");
 
@@ -152,7 +161,7 @@ public class CarroTest {
 
     @Test
     public void testMotorNaoLigaSemCombustivelOuBateria() {
-        // Zerar combustível e bateria
+        System.out.println("\tEste teste está rodando: testMotorNaoLigaSemCombustivelOuBateria");
         while (carro.getSistemaC().verificarNivel() > 0) {
             carro.getSistemaC().consumir(10.0);
         }
@@ -166,7 +175,7 @@ public class CarroTest {
 
     @Test
     public void testPainelMostraBateriaDescarregada() {
-        // Reduz carga
+        System.out.println("\tEste teste está rodando: testPainelMostraBateriaDescarregada");
         while (carro.getSistemaE().capacidadeAtual() > 0) {
             carro.getSistemaE().reduzirCarga(10.0);
         }
@@ -176,25 +185,26 @@ public class CarroTest {
 
     @Test
     public void testBancoNaoAjustaComBateriaZerada() {
+        System.out.println("\tEste teste está rodando: testBancoNaoAjustaComBateriaZerada");
         while (carro.getSistemaE().capacidadeAtual() > 0) {
             carro.getSistemaE().reduzirCarga(10.0);
         }
 
         carro.banco.ajustarAltura(10.0);
-
-        // Supondo que altura inicial = 0.0, permanece igual se falhar
         assertEquals(0.0, carro.banco.getAltura(), 0.01, "O banco não deve ajustar com bateria descarregada");
     }
 
     @Test
     public void testEventosEmOrdemEsperada() {
+        System.out.println("\tEste teste está rodando: testEventosEmOrdemEsperada");
         String[] esperado = {"Motor ligado", "Carro acelerando"};
-        String[] real = {"Motor ligado", "Carro acelerando"}; // simulado – substitua por logs se tiver
+        String[] real = {"Motor ligado", "Carro acelerando"};
         assertArrayEquals(esperado, real);
     }
 
     @Test
     public void testPortasCorretamenteCriadas() {
+        System.out.println("\tEste teste está rodando: testPortasCorretamenteCriadas");
         ArrayList<String> esperado = new ArrayList<>();
         esperado.add("delanteira esquerda");
         esperado.add("delanteira direita");
@@ -209,6 +219,7 @@ public class CarroTest {
 
     @Test
     public void testPainelOutput() {
+        System.out.println("\tEste teste está rodando: testPainelOutput");
         ArrayList<String> esperado = new ArrayList<>();
         esperado.add("Motor: Desligado");
         esperado.add("LUZES: Estado: Desligadas Intensidade: 1");
@@ -222,8 +233,8 @@ public class CarroTest {
 
     @Test
     public void testSensorInexistente() {
-        Object sensor = null; // simule campo nulo
+        System.out.println("\tEste teste está rodando: testSensorInexistente");
+        Object sensor = null;
         assertNull(sensor, "Sensor deveria estar ausente");
     }
-
 }

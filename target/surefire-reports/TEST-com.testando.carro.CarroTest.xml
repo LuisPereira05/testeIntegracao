@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.092" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.testando.carro.CarroTest" time="0.079" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\mandr\AppData\Local\Temp\surefire87929318006537220\surefirebooter-20250610220701595_3.jar C:\Users\mandr\AppData\Local\Temp\surefire87929318006537220 2025-06-10T22-07-01_484-jvmRun1 surefire-20250610220701595_1tmp surefire_0-20250610220701595_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\mandr\AppData\Local\Temp\surefire7995581099929191389\surefirebooter-20250611193135444_3.jar C:\Users\mandr\AppData\Local\Temp\surefire7995581099929191389 2025-06-11T19-31-35_330-jvmRun1 surefire-20250611193135444_1tmp surefire_0-20250611193135444_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\mandr\OneDrive\Documents\GitHub\testeIntegracao\target\test-classes;C:\Users\mandr\OneDrive\Documents\GitHub\testeIntegracao\target\classes;C:\Users\mandr\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\mandr\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\mandr\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\mandr\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\mandr\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\mandr\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\mandr\.m2\repository\org\mockito\mockito-core\5.12.0\mockito-core-5.12.0.jar;C:\Users\mandr\.m2\repository\net\bytebuddy\byte-buddy\1.14.15\byte-buddy-1.14.15.jar;C:\Users\mandr\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.15\byte-buddy-agent-1.14.15.jar;C:\Users\mandr\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\mandr\AppData\Local\Temp\surefire87929318006537220\surefirebooter-20250610220701595_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\mandr\AppData\Local\Temp\surefire7995581099929191389\surefirebooter-20250611193135444_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22+36-2370"/>
@@ -61,34 +61,48 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="testAbrirPortaComMotorDesligado" classname="com.testando.carro.CarroTest" time="0.03">
-    <system-out><![CDATA[Porta destravada
+  <testcase name="testAbrirPortaComMotorDesligado" classname="com.testando.carro.CarroTest" time="0.026">
+    <system-out><![CDATA[	Este teste está rodando: testAbrirPortaComMotorDesligado
+Porta destravada
 Porta aberta.
 ]]></system-out>
   </testcase>
-  <testcase name="testEventosEmOrdemEsperada" classname="com.testando.carro.CarroTest" time="0.002"/>
+  <testcase name="testEventosEmOrdemEsperada" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testEventosEmOrdemEsperada
+]]></system-out>
+  </testcase>
   <testcase name="testAbrirPortaComMotorLigadoLancaExcecao" classname="com.testando.carro.CarroTest" time="0.002">
-    <system-out><![CDATA[Motor ligado
+    <system-out><![CDATA[	Este teste está rodando: testAbrirPortaComMotorLigadoLancaExcecao
+Motor ligado
 Porta destravada
 ]]></system-out>
   </testcase>
   <testcase name="testFrearAcendeLuzDeFreio" classname="com.testando.carro.CarroTest" time="0.001">
-    <system-out><![CDATA[Luzes acesas: freio
+    <system-out><![CDATA[	Este teste está rodando: testFrearAcendeLuzDeFreio
+Luzes acesas: freio
 Carro freando
 ]]></system-out>
   </testcase>
-  <testcase name="testSensorInexistente" classname="com.testando.carro.CarroTest" time="0.002"/>
-  <testcase name="testPainelOutput" classname="com.testando.carro.CarroTest" time="0.003"/>
-  <testcase name="testPainelMostraBateriaDescarregada" classname="com.testando.carro.CarroTest" time="0.005">
-    <system-out><![CDATA[Bateria consumida. Capacidade restante: 38.0
+  <testcase name="testSensorInexistente" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testSensorInexistente
+]]></system-out>
+  </testcase>
+  <testcase name="testPainelOutput" classname="com.testando.carro.CarroTest" time="0.003">
+    <system-out><![CDATA[	Este teste está rodando: testPainelOutput
+]]></system-out>
+  </testcase>
+  <testcase name="testPainelMostraBateriaDescarregada" classname="com.testando.carro.CarroTest" time="0.004">
+    <system-out><![CDATA[	Este teste está rodando: testPainelMostraBateriaDescarregada
+Bateria consumida. Capacidade restante: 38.0
 Bateria consumida. Capacidade restante: 28.0
 Bateria consumida. Capacidade restante: 18.0
 Bateria consumida. Capacidade restante: 8.0
 Bateria descarregada.
 ]]></system-out>
   </testcase>
-  <testcase name="testAceleracaoReduzBateria" classname="com.testando.carro.CarroTest" time="0.004">
-    <system-out><![CDATA[Motor ligado
+  <testcase name="testAceleracaoReduzBateria" classname="com.testando.carro.CarroTest" time="0.003">
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoReduzBateria
+Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 1
 Desgaste aplicado. Capacidade restante: 39.0
@@ -99,8 +113,9 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testMotorNaoLigaSemCombustivelOuBateria" classname="com.testando.carro.CarroTest" time="0.002">
-    <system-out><![CDATA[Tanque vazio!
+  <testcase name="testMotorNaoLigaSemCombustivelOuBateria" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testMotorNaoLigaSemCombustivelOuBateria
+Tanque vazio!
 Bateria consumida. Capacidade restante: 38.0
 Bateria consumida. Capacidade restante: 28.0
 Bateria consumida. Capacidade restante: 18.0
@@ -109,8 +124,9 @@ Bateria descarregada.
 ERRO: A bateria está vazia
 ]]></system-out>
   </testcase>
-  <testcase name="testAceleracaoConsomeCombustivel" classname="com.testando.carro.CarroTest" time="0.002">
-    <system-out><![CDATA[Motor ligado
+  <testcase name="testAceleracaoConsomeCombustivel" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoConsomeCombustivel
+Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 1
 Desgaste aplicado. Capacidade restante: 39.0
@@ -121,8 +137,9 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testSuspensaoSeAjustaConformeMarcha" classname="com.testando.carro.CarroTest" time="0.003">
-    <system-out><![CDATA[Motor ligado
+  <testcase name="testSuspensaoSeAjustaConformeMarcha" classname="com.testando.carro.CarroTest" time="0.002">
+    <system-out><![CDATA[	Este teste está rodando: testSuspensaoSeAjustaConformeMarcha
+Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 2
 Desgaste aplicado. Capacidade restante: 39.0
@@ -157,9 +174,13 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testPortasCorretamenteCriadas" classname="com.testando.carro.CarroTest" time="0.002"/>
+  <testcase name="testPortasCorretamenteCriadas" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testPortasCorretamenteCriadas
+]]></system-out>
+  </testcase>
   <testcase name="testAceleracaoTravaPortas" classname="com.testando.carro.CarroTest" time="0.001">
-    <system-out><![CDATA[Porta destravada
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoTravaPortas
+Porta destravada
 Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 1
@@ -171,8 +192,9 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testBancoNaoAjustaComBateriaZerada" classname="com.testando.carro.CarroTest" time="0.0">
-    <system-out><![CDATA[Bateria consumida. Capacidade restante: 38.0
+  <testcase name="testBancoNaoAjustaComBateriaZerada" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testBancoNaoAjustaComBateriaZerada
+Bateria consumida. Capacidade restante: 38.0
 Bateria consumida. Capacidade restante: 28.0
 Bateria consumida. Capacidade restante: 18.0
 Bateria consumida. Capacidade restante: 8.0
@@ -181,7 +203,8 @@ ERRO: NÃO FOI POSSÍVEL AJUSTAR A ALTURA
 ]]></system-out>
   </testcase>
   <testcase name="testAceleracaoDesgastaPneus" classname="com.testando.carro.CarroTest" time="0.001">
-    <system-out><![CDATA[Motor ligado
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoDesgastaPneus
+Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 1
 Desgaste aplicado. Capacidade restante: 39.0
@@ -192,8 +215,9 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testAceleracaoRecarregaBateria" classname="com.testando.carro.CarroTest" time="0.002">
-    <system-out><![CDATA[Bateria consumida. Capacidade restante: 38.0
+  <testcase name="testAceleracaoRecarregaBateria" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoRecarregaBateria
+Bateria consumida. Capacidade restante: 38.0
 Bateria consumida. Capacidade restante: 28.0
 Bateria consumida. Capacidade restante: 18.0
 Bateria consumida. Capacidade restante: 8.0
@@ -210,8 +234,9 @@ A porta já está travada.
 Carro acelerando
 ]]></system-out>
   </testcase>
-  <testcase name="testAceleracaoAumentaMarcha" classname="com.testando.carro.CarroTest" time="0.002">
-    <system-out><![CDATA[Motor ligado
+  <testcase name="testAceleracaoAumentaMarcha" classname="com.testando.carro.CarroTest" time="0.001">
+    <system-out><![CDATA[	Este teste está rodando: testAceleracaoAumentaMarcha
+Motor ligado
 Bateria consumida. Capacidade restante: 46.0
 Suspensão ajustada automaticamente conforme marcha: 1
 Desgaste aplicado. Capacidade restante: 39.0
