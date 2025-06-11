@@ -10,7 +10,7 @@ import com.testando.carro.Sistemas.SistemaEletrico;
  *
  * @author mandr
  */
-public class Suspensao extends ComponenteCarro{
+public class Suspensao extends ComponenteCarro {
 
     // Atributos
     public SistemaEletrico sistemaE;
@@ -19,7 +19,6 @@ public class Suspensao extends ComponenteCarro{
     private int rigidez;
 
     // Construtor vazio
-
     public Suspensao(SistemaEletrico sistemaE, String tipo, double altura, int rigidez, String estado, String material, String marca) {
         super(estado, material, marca);
         this.sistemaE = sistemaE;
@@ -28,11 +27,7 @@ public class Suspensao extends ComponenteCarro{
         this.rigidez = rigidez;
     }
 
-    
-    
-
     // Métodos
-
     // Ajusta a altura da suspensão
     public void ajustarAltura(double novaAltura) {
         if (sistemaE.verificarBateria() && novaAltura >= 0) {
@@ -43,7 +38,6 @@ public class Suspensao extends ComponenteCarro{
     }
 
     // Retorna o estado atual da suspensão
-
     @Override
     public void verificarEstado() {
         System.out.println(this.estado);
@@ -52,9 +46,6 @@ public class Suspensao extends ComponenteCarro{
     public String getTipo() {
         return tipo;
     }
-    
-    
-    
 
     public void ajustarRigidez(int novaRigidez) {
         if (sistemaE.verificarBateria() && novaRigidez <= 100 && novaRigidez > 0) {
@@ -63,5 +54,20 @@ public class Suspensao extends ComponenteCarro{
             System.out.println("ERRO: Bateria vazia, ou rigidez errada");
         }
     }
-}
 
+    public void ajustarPorVelocidade(int marcha) {
+        if (marcha <= 2) {
+            this.ajustarAltura(25.0);
+        } else if (marcha <= 4) {
+            this.ajustarAltura(20.0);
+        } else {
+            this.ajustarAltura(15.0);
+        }
+        System.out.println("Suspensão ajustada automaticamente conforme marcha: " + marcha);
+    }
+
+    public double getAltura() {
+        return this.altura;
+    }
+
+}

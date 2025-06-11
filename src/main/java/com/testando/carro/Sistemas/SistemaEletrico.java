@@ -10,7 +10,6 @@ public class SistemaEletrico {
     private String marca;
 
     // Construtor vazio
-
     public SistemaEletrico(double voltagem, double capacidade, String tipoDeBateria, boolean estado, String marca) {
         this.voltagem = voltagem;
         this.capacidade = capacidade;
@@ -18,10 +17,8 @@ public class SistemaEletrico {
         this.estado = estado;
         this.marca = marca;
     }
-    
 
     // Métodos
-
     // Verifica o estado da bateria
     public boolean verificarBateria() {
         return estado;
@@ -44,4 +41,32 @@ public class SistemaEletrico {
         estado = true;
         System.out.println("Sistema elétrico ativado.");
     }
+
+    // Reduz carga da bateria
+    public void reduzirCarga(double quantidade) {
+        if (capacidade - quantidade < 0) {
+            capacidade = 0;
+            estado = false;
+            System.out.println("Bateria descarregada.");
+        } else {
+            capacidade -= quantidade;
+            System.out.println("Bateria consumida. Capacidade restante: " + capacidade);
+        }
+    }
+
+    // Recarrega a bateria
+    public void recarregar(double quantidade) {
+        capacidade += quantidade;
+        if (!estado && capacidade > 0) {
+            estado = true;
+            System.out.println("Bateria recarregada e reativada.");
+        } else {
+            System.out.println("Bateria carregada. Capacidade atual: " + capacidade);
+        }
+    }
+
+    public double capacidadeAtual() {
+        return capacidade;
+    }
+
 }

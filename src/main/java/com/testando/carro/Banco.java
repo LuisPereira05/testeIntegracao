@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.testando.carro;
 
 import com.testando.carro.Sistemas.SistemaEletrico;
@@ -10,9 +6,8 @@ import com.testando.carro.Sistemas.SistemaEletrico;
  *
  * @author mandr
  */
-
 public class Banco extends ComponenteCarro {
-    public SistemaEletrico sistemaE;
+    private SistemaEletrico sistemaE;
     private double altura;
     private String cor;
     private String tipo;
@@ -30,22 +25,21 @@ public class Banco extends ComponenteCarro {
             this.estado = posicao;
             System.out.println("Encosto ajustado para: " + posicao);
         } else {
-            System.out.println("ERRO: NAO FOI POSSIVEL AJUSTAR O ENCOSTO");
+            System.out.println("ERRO: NÃO FOI POSSÍVEL AJUSTAR O ENCOSTO");
         }
-        
     }
 
     public void ajustarAltura(double novaAltura) {
         if (sistemaE.verificarBateria()) {
-            /*while(this.altura <= novaAltura){
-                this.altura += 0.00000001;
-            }*/
             this.altura = novaAltura;
             System.out.println("Altura ajustada para: " + novaAltura + " cm");
         } else {
-            System.out.println("ERRO: NAO FOI POSSIVEL AJUSTAR A ALTURA");
+            System.out.println("ERRO: NÃO FOI POSSÍVEL AJUSTAR A ALTURA");
         }
-        
+    }
+
+    public double getAltura() {
+        return this.altura;
     }
 
     @Override
@@ -53,5 +47,3 @@ public class Banco extends ComponenteCarro {
         System.out.println("Banco (" + tipo + ") está: " + this.estado + ", com altura: " + this.altura);
     }
 }
-
-

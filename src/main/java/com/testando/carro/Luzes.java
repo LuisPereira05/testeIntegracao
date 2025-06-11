@@ -1,17 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.testando.carro;
 
 import com.testando.carro.Sistemas.SistemaEletrico;
 
-/**
- *
- * @author mandr
- */
-public class Luzes extends ComponenteCarro{
-
+public class Luzes extends ComponenteCarro {
 
     public SistemaEletrico sistemaE;
     private String tipo;
@@ -30,10 +21,10 @@ public class Luzes extends ComponenteCarro{
     public String getTipo() {
         return tipo;
     }
-   
-    
 
-
+    public String getEstado() {
+        return estado;
+    }
 
     public Luzes(SistemaEletrico sistemaE, String tipo, int intensidade, String cor, String modelo, String material, String marca) {
         super("Desligadas", material, marca);
@@ -43,25 +34,22 @@ public class Luzes extends ComponenteCarro{
         this.cor = cor;
         this.modelo = modelo;
     }
-    
 
     public void ligar() {
         if (this.estado.equals("Desligadas")) {
             this.estado = "Ligadas";
         } else {
-            System.out.println("As Luzes já estao ligadas");
+            System.out.println("As Luzes já estão ligadas");
         }
     }
-
 
     public void desligar() {
         if (this.estado.equals("Ligadas")) {
-           this.estado = "Desligadas";
+            this.estado = "Desligadas";
         } else {
-            System.out.println("As Luzes já estao desligadas");
+            System.out.println("As Luzes já estão desligadas");
         }
     }
-
 
     public void ajustarIntensidade(int novaIntensidade) {
         switch (novaIntensidade) {
@@ -71,7 +59,7 @@ public class Luzes extends ComponenteCarro{
                 break;
             case 2:
                 this.intensidade = novaIntensidade;
-                System.out.println("Intensidade ajustada para: baixa");
+                System.out.println("Intensidade ajustada para: Baixa");
                 break;
             case 3:
                 this.intensidade = novaIntensidade;
@@ -83,11 +71,14 @@ public class Luzes extends ComponenteCarro{
         }
     }
 
+    public void acender(String tipo) {
+        this.estado = "Ligadas";
+        this.tipo = tipo;
+        System.out.println("Luzes acesas: " + tipo);
+    }
+
     @Override
     public void verificarEstado() {
         System.out.println("LUZES: Estado: " + this.estado + " Intensidade: " + this.intensidade);
     }
-    
-    
-    
 }

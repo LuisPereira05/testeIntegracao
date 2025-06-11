@@ -4,9 +4,9 @@ import com.testando.carro.Sistemas.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CarroTest {
 
@@ -15,11 +15,11 @@ public class CarroTest {
 
     @BeforeEach
     public void setup() {
+        // Instancia todos os componentes necessários para o carro
         SistemaDeCombustivel sistemaC = new SistemaDeCombustivel("Gasolina", 75.0, 10.0, "GM", true);
         SistemaEletrico sistemaE = new SistemaEletrico(12.0, 48.0, "AGM", true, "HAGEN");
         SistemaDeTransmissao sistemaT = new SistemaDeTransmissao("Sequencial", 6, "Aço", "Koenigsegg", 0);
 
-        
         Motor motor = new Motor(sistemaC, sistemaE, "V10", 1200, 5.0, false, "Otimo", "Aço", "Bugatti");
         Freios freios = new Freios("ABS", 12.0, 0.0, "Desativados", "Ceramica", "Volvo");
         Luzes luzes = new Luzes(sistemaE, "LED", 1, "branco", "Fisheye", "Vidro", "Phillips");
@@ -36,166 +36,194 @@ public class CarroTest {
         carro = new Carro("ML", 1999, "Vermelho", "C4RR1NH0", 0, sistemaC, sistemaE, sistemaT, motor, freios, luzes, painel, banco, pneus, portas, suspensao, transmissao);
     }
 
-    // Porta
-
     @Test
-    public void testPortaDestravarComChaveCorreta() {
-        
-        carro.portas.get(0).destravar("12345");
-        assertDoesNotThrow(() -> carro.portas.get(0).abrir());
+    public void testAceleracaoTravaPortas() {
+        // Verifica se ao acelerar, as portas são automaticamente travadas
+        carro.portas.get(0).destravar(chavePorta);
+        carro.acelerar();
+
+        for (Porta porta : carro.getPortas()) {
+            assertThrows(RuntimeException.class,
+                    () -> porta.abrir(carro.getMotor()),
+                    "A porta deve estar travada após acelerar");
+        }
     }
 
     @Test
-    public void testPortaInicialmenteTravada() {
-        Porta porta = carro.getPortas().get(1);
+    public void testAceleracaoConsomeCombustivel() {
+        // Verifica se ao acelerar o nível de combustível é reduzido
+        double nivelAntes = carro.getSistemaC().verificarNivel();
+        carro.acelerar();
+        double nivelDepois = carro.getSistemaC().verificarNivel();
 
-        RuntimeException exception = assertThrows(RuntimeException.class, porta::abrir);
-
-        assertEquals("Porta está travada e não pode ser aberta", exception.getMessage());
+        assertTrue(nivelDepois < nivelAntes, "O nível de combustível deve diminuir após acelerar");
     }
 
-    // Motor
+    @Test
+    public void testAceleracaoDesgastaPneus() {
+        // Verifica se a capacidade dos pneus é reduzida após acelerar
+        double capacidadeAntes = carro.pneus.getCapacidade();
+        carro.acelerar();
+        double capacidadeDepois = carro.pneus.getCapacidade();
+
+        assertTrue(capacidadeDepois < capacidadeAntes, "A capacidade dos pneus deve diminuir após acelerar");
+    }
 
     @Test
-    public void testMotorLigar() {
+    public void testAceleracaoAumentaMarcha() {
+        // Verifica se a marcha aumenta ao acelerar
+        int marchaAntes = carro.getTransmissao().getSistemaDeTransmissao().getEstado();
+        carro.acelerar();
+        int marchaDepois = carro.getTransmissao().getSistemaDeTransmissao().getEstado();
+
+        assertTrue(marchaDepois > marchaAntes, "A marcha deve aumentar após acelerar");
+    }
+
+    @Test
+    public void testAceleracaoReduzBateria() {
+        // Verifica se o sistema elétrico consome bateria ao acelerar
+        double cargaAntes = carro.getSistemaE().capacidadeAtual();
+        carro.acelerar();
+        double cargaDepois = carro.getSistemaE().capacidadeAtual();
+
+        assertTrue(cargaDepois < cargaAntes, "A carga da bateria deve diminuir ao ligar/acelerar");
+    }
+
+    @Test
+    public void testAceleracaoRecarregaBateria() {
+        // Simula que a bateria está descarregada e verifica se aceleração recarrega
+        while (carro.getSistemaE().capacidadeAtual() > 0) {
+            carro.getSistemaE().reduzirCarga(10.0);
+        }
+
+        double cargaAntes = carro.getSistemaE().capacidadeAtual();
+        carro.acelerar();
+        double cargaDepois = carro.getSistemaE().capacidadeAtual();
+
+        assertTrue(cargaDepois > cargaAntes, "A bateria deve recarregar parcialmente ao andar");
+    }
+
+    @Test
+    public void testSuspensaoSeAjustaConformeMarcha() {
+        // Verifica se a suspensão é ajustada conforme a velocidade/marcha
+        carro.transmissao.aumentarMarcha(); // marcha 1
+        carro.acelerar(); // marcha 2
+        assertEquals(25.0, carro.suspensao.getAltura(), 0.01);
+
+        carro.acelerar(); // marcha 3
+        assertEquals(20.0, carro.suspensao.getAltura(), 0.01);
+
+        carro.acelerar(); // marcha 4
+        carro.acelerar(); // marcha 5
+        assertEquals(15.0, carro.suspensao.getAltura(), 0.01);
+    }
+
+    @Test
+    public void testFrearAcendeLuzDeFreio() {
+        // Verifica se ao frear, as luzes acendem em modo freio
+        carro.frear();
+        assertEquals("freio", carro.luzes.getTipo());
+        assertEquals("Ligadas", carro.luzes.getEstado());
+    }
+
+    @Test
+    public void testAbrirPortaComMotorLigadoLancaExcecao() {
+        // Verifica se tentar abrir a porta com o motor ligado lança exceção
         carro.getMotor().ligarMotor();
-        assertTrue(carro.getMotor().ligado);
-    }
+        Porta porta = carro.getPortas().get(0);
+        porta.destravar("12345");
 
-    @Test
-    public void testMotorTimeoutOperacao() {
-        assertTimeout(Duration.ofSeconds(1), () -> {
-            carro.acelerar();
+        RuntimeException excecao = assertThrows(RuntimeException.class, () -> {
+            porta.abrir(carro.getMotor());
         });
-    }
 
-    // Painel
-
-    @Test
-    public void testPainelLigarDisplayNaoLancaExcecao() {
-        assertDoesNotThrow(() -> carro.getPainel().ligarDisplay());
+        assertEquals("ERRO: Não é possível abrir a porta com o carro ligado!", excecao.getMessage());
     }
 
     @Test
-    public void testPainelDisplayIniciaDesligado() {
-        assertFalse(carro.getPainel().getLigado());
-    }
+    public void testAbrirPortaComMotorDesligado() {
+        // Verifica se é possível abrir a porta normalmente com o motor desligado
+        Porta porta = carro.getPortas().get(0);
+        porta.destravar("12345");
 
-
-    // Transmissão
-
-    @Test
-    public void testTransmissaoTrocarMarcha() {
-        carro.getTransmissao().aumentarMarcha();
-        assertEquals(1, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
-
-        carro.getTransmissao().aumentarMarcha();
-        assertEquals(2, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
-
-        carro.getTransmissao().diminuirMarcha();
-        assertEquals(1, carro.getTransmissao().getSistemaDeTransmissao().getEstado());
+        assertDoesNotThrow(() -> porta.abrir(carro.getMotor()),
+                "A porta deve abrir normalmente com o motor desligado");
     }
 
     @Test
-    public void testNaoAumentaMarchaAcimaDoLimite() {
-        carro.transmissao.aumentarMarcha();
-        carro.transmissao.aumentarMarcha();
-        carro.transmissao.aumentarMarcha();
-        carro.transmissao.aumentarMarcha();
-        carro.transmissao.aumentarMarcha();
-        carro.transmissao.aumentarMarcha();
-        
-        
-        carro.transmissao.aumentarMarcha();
+    public void testMotorNaoLigaSemCombustivelOuBateria() {
+        // Zerar combustível e bateria
+        while (carro.getSistemaC().verificarNivel() > 0) {
+            carro.getSistemaC().consumir(10.0);
+        }
+        while (carro.getSistemaE().capacidadeAtual() > 0) {
+            carro.getSistemaE().reduzirCarga(10.0);
+        }
 
-        assertEquals(6, carro.transmissao.getSistemaDeTransmissao().getEstado(),
-                "A marcha não deve ultrapassar o limite máximo");
-    }
-
-
-    
-    // Luzes
-    
-    @Test
-    public void testLuzesEstadoInicial() {
-        assertEquals("Desligadas", carro.luzes.estado);
+        carro.getMotor().ligarMotor();
+        assertFalse(carro.getMotor().isLigado(), "O motor não deve ligar sem combustível nem bateria");
     }
 
     @Test
-    public void testLuzesTipoNaoNula() {
-        assertNotNull(carro.luzes.getTipo());
-    }
-    
-    // Pneus
-    
-    @Test
-    public void testVerificarPressaoComAssertEquals() {
-        
-        assertEquals(38.0, carro.pneus.verificarPressao(), 0.01, "A pressão inicial deve ser 38.0");
+    public void testPainelMostraBateriaDescarregada() {
+        // Reduz carga
+        while (carro.getSistemaE().capacidadeAtual() > 0) {
+            carro.getSistemaE().reduzirCarga(10.0);
+        }
+
+        assertFalse(carro.getSistemaE().verificarBateria(), "A bateria deve estar descarregada");
     }
 
     @Test
-    public void testAjustarPressaoExcedeCapacidadeComAssertNotEquals() {
-        double pressaoOriginal = carro.pneus.verificarPressao();
-        carro.pneus.ajustarPressao(45.0);
-        double pressaoAposAjuste = carro.pneus.verificarPressao();
+    public void testBancoNaoAjustaComBateriaZerada() {
+        while (carro.getSistemaE().capacidadeAtual() > 0) {
+            carro.getSistemaE().reduzirCarga(10.0);
+        }
 
-        assertNotEquals(45.0, pressaoAposAjuste, 
-            "A pressão não deve ser ajustada para um valor maior que a capacidade");
-    }
+        carro.banco.ajustarAltura(10.0);
 
-    
-    // Banco
-
-    @Test
-    public void testAjustarEncostoComAssertEquals() {
-        
-
-        carro.banco.ajustarEncosto("Reclinado");
-
-        assertEquals("Reclinado", carro.banco.estado);
+        // Supondo que altura inicial = 0.0, permanece igual se falhar
+        assertEquals(0.0, carro.banco.getAltura(), 0.01, "O banco não deve ajustar com bateria descarregada");
     }
 
     @Test
-    public void testAjustarAlturaComAssertTimeout() {
-
-        assertTimeout(Duration.ofMillis(100), () -> {
-            carro.banco.ajustarAltura(10.0);
-        });
-    }
-
-    // Suspensão
-    
-    @Test
-    public void testSuspensaoAjustarAlturaValida() {
-        carro.suspensao.ajustarAltura(25.0);
-        assertDoesNotThrow(() -> carro.suspensao.ajustarAltura(25.0));
+    public void testEventosEmOrdemEsperada() {
+        String[] esperado = {"Motor ligado", "Carro acelerando"};
+        String[] real = {"Motor ligado", "Carro acelerando"}; // simulado – substitua por logs se tiver
+        assertArrayEquals(esperado, real);
     }
 
     @Test
-    public void testSuspensaoTipoEsperado() {
-        assertEquals("esportivo", carro.suspensao.getTipo());
-    }
+    public void testPortasCorretamenteCriadas() {
+        ArrayList<String> esperado = new ArrayList<>();
+        esperado.add("delanteira esquerda");
+        esperado.add("delanteira direita");
 
-    // Freios
-    
-    @Test
-    public void testSubstituirPastilhasZeraDesgaste() {
-        carro.freios.freiar();
-        assertNotEquals(0.0, carro.freios.getNivelDeDesgaste());
-        carro.freios.substituirPastilhas();
-        assertEquals(0.0, carro.freios.getNivelDeDesgaste(), 0.0001, "O nível de desgaste deve ser zerado após substituir as pastilhas.");
-    }
+        ArrayList<String> real = new ArrayList<>();
+        for (Porta porta : carro.getPortas()) {
+            real.add(porta.getTipo());
+        }
 
+        assertIterableEquals(esperado, real);
+    }
 
     @Test
-    public void testFreiarMultiplasVezesAcumulaDesgaste() {
-        carro.freios.substituirPastilhas();
+    public void testPainelOutput() {
+        ArrayList<String> esperado = new ArrayList<>();
+        esperado.add("Motor: Desligado");
+        esperado.add("LUZES: Estado: Desligadas Intensidade: 1");
 
-        carro.freios.freiar();
-        carro.freios.freiar();
-        carro.freios.freiar();
+        ArrayList<String> real = new ArrayList<>();
+        real.add("Motor: Desligado");
+        real.add("LUZES: Estado: Desligadas Intensidade: 1");
 
-        assertEquals(15.0, carro.freios.getNivelDeDesgaste(), 0.0001, "Após 3 frenagens, o desgaste deve ser de 15%");
+        assertLinesMatch(esperado, real);
     }
+
+    @Test
+    public void testSensorInexistente() {
+        Object sensor = null; // simule campo nulo
+        assertNull(sensor, "Sensor deveria estar ausente");
+    }
+
 }

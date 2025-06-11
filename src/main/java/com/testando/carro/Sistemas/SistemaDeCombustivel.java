@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.testando.carro.Sistemas;
 
-/**
- *
- * @author mandr
- */
 public class SistemaDeCombustivel {
 
     // Atributos
@@ -17,7 +9,7 @@ public class SistemaDeCombustivel {
     private String marca;
     private boolean estado;
 
-
+    // Construtor
     public SistemaDeCombustivel(String tipoDeCombustivel, double capacidade, double nivelDeCombustivel, String marca, boolean estado) {
         this.tipoDeCombustivel = tipoDeCombustivel;
         this.capacidade = capacidade;
@@ -25,9 +17,6 @@ public class SistemaDeCombustivel {
         this.marca = marca;
         this.estado = estado;
     }
-    
-
-    // Métodos
 
     // Verifica o nível de combustível
     public double verificarNivel() {
@@ -38,6 +27,7 @@ public class SistemaDeCombustivel {
     public boolean abastecer(double quantidade) {
         if (this.nivelDeCombustivel + quantidade <= this.capacidade) {
             this.nivelDeCombustivel += quantidade;
+            System.out.println("Abastecido com sucesso. Nível atual: " + this.nivelDeCombustivel);
             return true;
         } else {
             System.out.println("ERRO: QUANTIDADE INVALIDA");
@@ -49,20 +39,28 @@ public class SistemaDeCombustivel {
     public boolean substituirTanque(double novaCapacidade) {
         if (novaCapacidade > 0) {
             this.capacidade = novaCapacidade;
+            System.out.println("Tanque substituído. Nova capacidade: " + novaCapacidade);
             return true;
-        } else{
+        } else {
             System.out.println("ERRO: CAPACIDADE INVALIDA");
             return false;
         }
-        
     }
-    
-    public void ajustarNivel(double gasto) {
-        if (this.nivelDeCombustivel - gasto > 0) {
-            this.nivelDeCombustivel -= gasto;
+
+    // Consome combustível
+    public void consumir(double quantidade) {
+        if (nivelDeCombustivel - quantidade <= 0) {
+            nivelDeCombustivel = 0;
+            estado = false;
+            System.out.println("Tanque vazio!");
         } else {
-            this.nivelDeCombustivel = 0;
+            nivelDeCombustivel -= quantidade;
+            System.out.println("Combustível consumido. Nível atual: " + nivelDeCombustivel);
         }
     }
-}
 
+    // Retorna se o sistema está ativo
+    public boolean isAtivo() {
+        return estado;
+    }
+}
