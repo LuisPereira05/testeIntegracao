@@ -8,6 +8,7 @@ public class SistemaEletrico {
     private String tipoDeBateria;
     private boolean estado;
     private String marca;
+    public double carga;
 
     // Construtor vazio
 
@@ -17,6 +18,7 @@ public class SistemaEletrico {
         this.tipoDeBateria = tipoDeBateria;
         this.estado = estado;
         this.marca = marca;
+        this.carga = 100.0;
     }
     
 
@@ -31,6 +33,7 @@ public class SistemaEletrico {
     public void substituirBateria() {
         System.out.println("Bateria substituída.");
         estado = true;
+        carga = 100;
     }
 
     // Testa o sistema elétrico
@@ -43,5 +46,10 @@ public class SistemaEletrico {
     public void ativarParteEletrica() {
         estado = true;
         System.out.println("Sistema elétrico ativado.");
+    }
+    
+    public void gastarBateria(double watts) {
+        double por = watts * (100 / capacidade);
+        this.carga -= por;
     }
 }

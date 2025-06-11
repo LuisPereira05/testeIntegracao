@@ -65,6 +65,14 @@ public class Luzes extends ComponenteCarro{
 
     public void ajustarIntensidade(int novaIntensidade) {
         switch (novaIntensidade) {
+            case -1:
+                this.intensidade = novaIntensidade;
+                System.out.println("Intensidade ajustada para: Reversa");
+                break;
+            case 0:
+                this.intensidade = novaIntensidade;
+                System.out.println("Intensidade ajustada para: Freio");
+                break;
             case 1:
                 this.intensidade = novaIntensidade;
                 System.out.println("Intensidade ajustada para: Posição");

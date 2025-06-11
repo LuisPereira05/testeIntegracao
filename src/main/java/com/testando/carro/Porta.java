@@ -72,4 +72,12 @@ public class Porta extends ComponenteCarro {
             System.out.println("A porta está destravada");
         }
     }
+    
+    public void travar() {
+        if (this.estado.equals("Aberta")) {
+            this.fechar();
+            
+        }
+        this.travada = true;
+    }
 }

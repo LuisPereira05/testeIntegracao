@@ -29,6 +29,7 @@ public class Carro {
     ArrayList<Porta> portas;
     Suspensao suspensao;
     Transmissao transmissao;
+    double velocidade;
     
 
     
@@ -36,20 +37,65 @@ public class Carro {
     
     
     public void ligar(){
+        this.sistemaE.gastarBateria(quilometragem);
+        this.motor.ligarMotor();
+        for (Porta porta : portas) {
+            porta.travar();
+        }
+        this.luzes.ajustarIntensidade(1);
+        
+    }
+    
+    public void freiar() {
+        this.freios.freiar();
+        if (this.pneus.desgaste + 1.0 >= 100.0) {
+            throw new RuntimeException("BOOOOOM ARREBENTOU UM PNEU");
+        } else {
+            this.pneus.desgaste += 1.0;
+        }
+        if (this.freios.nivelDeDesgaste == 100.0) {
+            throw new RuntimeException("NÃO TEM FREIO!!! VAI ATROPELHAR A VELH- BOOOOOOOOOOMMMMMMMMM!!!!");
+        } else {
+            velocidade -= 5;
+        }
         
     }
     
     public void desligar(){
+        this.motor.desligar();
         
     }
     
     public void atualizarQuilometragem(double km){
-        
+        this.quilometragem += km;
     }
     
     public void acelerar() {
         System.out.println("Carro acelerando");
-        this.motor.acelerar();
+        if (this.motor.ligado && !this.freios.deMao) {
+            this.motor.acelerar();
+            this.transmissao.aumentarMarcha();
+            if (this.pneus.desgaste + 1.0 >= 100.0) {
+                throw new RuntimeException("BOOOOOM ARREBENTOU UM PNEU");
+            } else {
+                this.pneus.desgaste += 1.0;
+            }
+            
+            this.atualizarQuilometragem(quilometragem + this.sistemaT.getEstado());
+            
+            this.velocidade += this.sistemaT.getEstado() * 0.75;
+            
+            if (this.sistemaE.carga + 0.1 >= 100.0) {
+                this.sistemaE.carga = 100.0;
+            } else {
+                this.sistemaE.carga += 0.1;
+            }
+        } else if (!this.motor.ligado){
+            throw new RuntimeException("Ligue o carro antes de acelerar");
+        } else if (this.freios.deMao) {
+            throw new RuntimeException("Freio de mão ativado. Desative antes de acelerar");
+        }
+        
         
     }
 

@@ -15,6 +15,7 @@ public class Pneus extends ComponenteCarro{
     private String tipo;
     private double capacidade;
     private double pressao;
+    public double desgaste;
 
 
 
@@ -25,6 +26,7 @@ public class Pneus extends ComponenteCarro{
         this.tipo = tipo;
         this.capacidade = capacidade;
         this.pressao = pressao;
+        this.desgaste = 0.0;
     }
 
 
